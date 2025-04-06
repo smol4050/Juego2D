@@ -7,10 +7,13 @@ public class GameManager : MonoBehaviour
 {
 
     public static GameManager Instance;
+    private GameControllerScene1 gameController;
 
     private int appleScore = 0;
+   
 
     public int AppleScore { get => appleScore; set => appleScore = value; }
+
 
     private void Awake() 
     {
@@ -31,7 +34,7 @@ public class GameManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        
+        gameController = FindObjectOfType<GameControllerScene1>();
     }
 
     // Update is called once per frame
@@ -44,13 +47,9 @@ public class GameManager : MonoBehaviour
     {
         appleScore += count;
 
-        GameControllerScene1 gameController = FindObjectOfType<GameControllerScene1>();
         if (gameController != null)
         {
             gameController.ShowScore();
         }
     }
-
-
-
 }

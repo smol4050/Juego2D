@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 5164520235356990178}
   - component: {fileID: 6650752398043596049}
   m_Layer: 0
-  m_Name: Apple
+  m_Name: RedApple
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -143,3 +143,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1c6f1fc143f8202439c0999ab5178f53, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  appleType: RedApple

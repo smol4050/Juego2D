@@ -4,6 +4,9 @@ using UnityEngine;
 
 public class Apple_Recolected : MonoBehaviour
 {
+
+    [SerializeField] private string appleType;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -20,8 +23,10 @@ public class Apple_Recolected : MonoBehaviour
     {
         if (collision.CompareTag("Player"))
         {
-            GameManager.Instance.SumValues(5);
+            int value = FindObjectOfType<GameControllerScene1>().GetAppleValue(appleType);
+            GameManager.Instance.SumValues(value);
             Destroy(gameObject);
+
 
         }
     }
