@@ -497,7 +497,7 @@ GameObject:
   - component: {fileID: 482899152}
   - component: {fileID: 482899151}
   m_Layer: 0
-  m_Name: fog (2)
+  m_Name: fog 3
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -687,7 +687,7 @@ GameObject:
   - component: {fileID: 901106559}
   - component: {fileID: 901106558}
   m_Layer: 0
-  m_Name: fog
+  m_Name: fog 2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -754,7 +754,7 @@ Transform:
   m_GameObject: {fileID: 901106557}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 1.8103077, y: -1.2439939, z: -0.08088506}
+  m_LocalPosition: {x: 1.8103077, y: -1.243994, z: -0.08088506}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -771,7 +771,7 @@ GameObject:
   - component: {fileID: 1008237841}
   - component: {fileID: 1008237840}
   m_Layer: 0
-  m_Name: fog (1)
+  m_Name: fog 5
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -819,7 +819,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: c1dc261634240f34ebb491b6b30ee3d9, type: 3}
-  m_Color: {r: 1, g: 0.6396227, b: 0.6396227, a: 0.41960785}
+  m_Color: {r: 0.9924528, g: 0.4250694, b: 0.71437716, a: 0.41960785}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -838,7 +838,7 @@ Transform:
   m_GameObject: {fileID: 1008237839}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 1.5073076, y: -0.40499392, z: 2.816115}
+  m_LocalPosition: {x: 1.8, y: -0.46, z: 2.32}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -853,6 +853,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1008477701}
+  - component: {fileID: 1008477702}
   m_Layer: 0
   m_Name: Neblina
   m_TagString: Untagged
@@ -880,6 +881,27 @@ Transform:
   - {fileID: 1008237841}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!95 &1008477702
+Animator:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1008477700}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 7a85ca40ccf9aad44949ecc4c958a1b2, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
 --- !u!1 &1120530358
 GameObject:
   m_ObjectHideFlags: 0
@@ -891,7 +913,7 @@ GameObject:
   - component: {fileID: 1120530360}
   - component: {fileID: 1120530359}
   m_Layer: 0
-  m_Name: fog
+  m_Name: fog 4
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -958,7 +980,7 @@ Transform:
   m_GameObject: {fileID: 1120530358}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -0.79569227, y: -1.0839939, z: 2.0691144}
+  m_LocalPosition: {x: -0.79569227, y: -1.083994, z: 2.069114}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -975,7 +997,7 @@ GameObject:
   - component: {fileID: 1168967520}
   - component: {fileID: 1168967519}
   m_Layer: 0
-  m_Name: fog (1)
+  m_Name: fog 1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1042,7 +1064,7 @@ Transform:
   m_GameObject: {fileID: 1168967518}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -1.2796929, y: -1.1139948, z: -0.080886014}
+  m_LocalPosition: {x: -1.2796929, y: -1.113995, z: -0.08088601}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
