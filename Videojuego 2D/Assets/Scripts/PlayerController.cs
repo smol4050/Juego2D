@@ -13,7 +13,11 @@ public class Player : MonoBehaviour
     private bool mirandoDerecha;
     public Transform attackPoint;
     public float attackRange = 0.5f;
-    public LayerMask enemysLayer;
+    public LayerMask enemyLayers;
+    public int attackDamage = 20;
+    public float attackCooldown = 1f;
+    private float attackTimer = 0f;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -64,25 +68,38 @@ public class Player : MonoBehaviour
     }
  
     private void attack()
+{
+    // Si se presiona "f" y se cumplió el cooldown:
+    if (Input.GetKeyDown("f") && attackTimer <= 0f)
     {
-        if (Input.GetKeyDown("f"))
-        {
-            Collider2D[] hitEnemies = Physics2D.OverlapCircleAll(attackPoint.position, attackRange, enemysLayer);// Detecta enemigos en el rango de ataque
-            animator.SetBool("isAttacking", true); // Cambia el estado del animator a "isAttacking"
+        // Resetea el temporizador del cooldown
+        attackTimer = attackCooldown;
 
-            foreach (Collider2D enemy in hitEnemies) //recorre cada objeto de la lista de enemigs  hitEnemies.
-            {
-                Debug.Log("se detectó " + enemy.gameObject.name); // nos da su nombre  
-            }
-        }else{
-            animator.SetBool("isAttacking", false);
-            if(enElPiso){
-                animator.SetBool("isJumping", !enElPiso);
-            }else{
-                animator.SetBool("isJumping", enElPiso);
-            }
+        // Detecta enemigos en el rango de ataque
+        Collider2D[] hitEnemies = Physics2D.OverlapCircleAll(attackPoint.position, attackRange, enemyLayers);
+        animator.SetBool("isAttacking", true);
+
+        // Recorre cada enemigo detectado y le aplica daño
+        foreach (Collider2D enemy in hitEnemies)
+        {
+            enemy.GetComponent<Enemy>().TakeDamage(attackDamage);
+            Debug.Log("Se detectó " + enemy.gameObject.name);
         }
     }
+    else
+    {
+        animator.SetBool("isAttacking", false);
+
+        // Aquí restamos el tiempo transcurrido del cooldown
+        if (attackTimer > 0)
+        {
+            attackTimer -= Time.deltaTime;
+        }
+
+        // Actualiza la animación de salto de forma sencilla
+        animator.SetBool("isJumping", !enElPiso);
+    }
+}
     private void OnTriggerEnter2D(Collider2D collision)
     {
         enElPiso = true;
