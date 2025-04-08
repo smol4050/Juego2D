@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: da5c7ccc9b4324141856503f6c45efda
+guid: 5896e058b2c43a34abf0d6c8123a4f7c
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -97,13 +97,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: mainlev_build_0
+      name: mini_enemy_Taller_0
       rect:
         serializedVersion: 2
-        x: 336
-        y: 625
-        width: 32
-        height: 32
+        x: 0
+        y: 615
+        width: 248
+        height: 248
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -111,20 +111,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: d52f4fa858d7e2a4db8ad64a9d065a75
-      internalID: 611838244
+      spriteID: e8d59a1cc4b70654e927806d7da7c88f
+      internalID: -1791144597
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: mainlev_build_1
+      name: mini_enemy_Taller_1
       rect:
         serializedVersion: 2
-        x: 384
-        y: 625
-        width: 32
-        height: 32
+        x: 270
+        y: 615
+        width: 248
+        height: 248
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -132,20 +132,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: a01c3f3caff094e4da4112609a8565a4
-      internalID: -653467368
+      spriteID: 5d9ac9987552ff04990b4a5a7f01318f
+      internalID: -1071461220
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: mainlev_build_2
+      name: mini_enemy_Taller_2
       rect:
         serializedVersion: 2
-        x: 432
-        y: 625
-        width: 32
-        height: 32
+        x: 562
+        y: 615
+        width: 248
+        height: 248
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -153,20 +153,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 8abb2f098b3fcf6418b355cf4d2f7532
-      internalID: -1177702295
+      spriteID: a8c74f72c8055d24f98e281c9ea54978
+      internalID: 412395260
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: mainlev_build_3
+      name: mini_enemy_Taller_3
       rect:
         serializedVersion: 2
-        x: 224
-        y: 625
-        width: 32
-        height: 32
+        x: 854
+        y: 616
+        width: 248
+        height: 248
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -174,20 +174,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 25a2c845ef960934eb3b8a569115e917
-      internalID: -980847317
+      spriteID: 7611ddbc9de9f734f9bb97cf156a35a2
+      internalID: -312928016
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: mainlev_build_4
+      name: mini_enemy_Taller_4
       rect:
         serializedVersion: 2
-        x: 240
-        y: 496
-        width: 32
-        height: 32
+        x: 1185
+        y: 616
+        width: 248
+        height: 248
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -195,20 +195,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 4af53cd956186fb47a453c9091e92d42
-      internalID: 431280267
+      spriteID: 3549c5a509d674e40a64975b1b08a11d
+      internalID: 36421166
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: mainlev_build_5
+      name: mini_enemy_Taller_5
       rect:
         serializedVersion: 2
-        x: 240
-        y: 544
-        width: 32
-        height: 32
+        x: 0
+        y: 335
+        width: 248
+        height: 248
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -216,20 +216,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 6bc0d3cdc7a56ab4da5bfe96082c2698
-      internalID: 1543710859
+      spriteID: 2dbb7cc9035601e48869b9b4cbcf8400
+      internalID: 334546990
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: mainlev_build_6
+      name: mini_enemy_Taller_6
       rect:
         serializedVersion: 2
-        x: 416
-        y: 496
-        width: 32
-        height: 32
+        x: 271
+        y: 337
+        width: 248
+        height: 248
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -237,20 +237,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: d74230b35514d094f80c7adb429fb76d
-      internalID: 1705960915
+      spriteID: 29a8e87c989869a4198a17ff4535cdf9
+      internalID: 2089379530
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: mainlev_build_7
+      name: mini_enemy_Taller_7
       rect:
         serializedVersion: 2
-        x: 400
-        y: 817
-        width: 32
-        height: 32
+        x: 561
+        y: 337
+        width: 248
+        height: 248
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -258,20 +258,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: f4bcc57de5120de419f57ba7e076bec1
-      internalID: 794225670
+      spriteID: 15c85dc0d78409842982fbe208ae8942
+      internalID: -1971491382
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: mainlev_build_8
+      name: mini_enemy_Taller_8
       rect:
         serializedVersion: 2
-        x: 256
-        y: 817
-        width: 32
-        height: 32
+        x: 854
+        y: 338
+        width: 248
+        height: 248
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -279,20 +279,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: f7a62f922e26d3848bd2c40baf9437cb
-      internalID: -1440586789
+      spriteID: 99d1f4b8f8234c243b40ab5b9142edbb
+      internalID: -747585884
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: mainlev_build_9
+      name: mini_enemy_Taller_9
       rect:
         serializedVersion: 2
-        x: 432
-        y: 672
-        width: 32
-        height: 32
+        x: 1182
+        y: 338
+        width: 248
+        height: 248
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -300,20 +300,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 8f2e9c3e8a01abc4abc41c0a52d2a225
-      internalID: -2076429209
+      spriteID: ba1c2b1d5360979408cd27217e4ace83
+      internalID: -1276674739
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: mainlev_build_10
+      name: mini_enemy_Taller_10
       rect:
         serializedVersion: 2
-        x: 224
-        y: 672
-        width: 32
-        height: 32
+        x: 0
+        y: 80
+        width: 248
+        height: 248
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -321,20 +321,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: d627b827829dd134786c3e0dfb6ab134
-      internalID: -1845569507
+      spriteID: 0712e0fed51958f48845853a796a5e8f
+      internalID: -1667611366
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: mainlev_build_11
+      name: mini_enemy_Taller_11
       rect:
         serializedVersion: 2
-        x: 224
-        y: 892
-        width: 32
-        height: 32
+        x: 264
+        y: 85
+        width: 248
+        height: 248
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -342,20 +342,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 273967148d930c04b8834a17a87c42d5
-      internalID: -736977689
+      spriteID: cb0d35b0524521747bd0f94dffa5d393
+      internalID: 677088709
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: mainlev_build_12
+      name: mini_enemy_Taller_12
       rect:
         serializedVersion: 2
-        x: 304
-        y: 896
-        width: 32
-        height: 32
+        x: 558
+        y: 84
+        width: 248
+        height: 248
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -363,20 +363,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 83c26c33193f353479291b5fc2237389
-      internalID: 1691870486
+      spriteID: fda1866c7f3b2f84893d16c6ac90f60e
+      internalID: 1216481302
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: mainlev_build_13
+      name: mini_enemy_Taller_13
       rect:
         serializedVersion: 2
-        x: 416
-        y: 896
-        width: 32
-        height: 32
+        x: 854
+        y: 85
+        width: 248
+        height: 248
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -384,20 +384,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 4b390500e94330949903ed1bc07d6231
-      internalID: 221770083
+      spriteID: f86fa8c29c669d04fa37af4a33f5a0b9
+      internalID: -1802322950
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: mainlev_build_14
+      name: mini_enemy_Taller_14
       rect:
         serializedVersion: 2
-        x: 416
-        y: 544
-        width: 32
-        height: 32
+        x: 1179
+        y: 86
+        width: 248
+        height: 248
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -405,92 +405,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 1810ee03915051e46b6a4f1787c1a533
-      internalID: -14117518
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: mainlev_build_15
-      rect:
-        serializedVersion: 2
-        x: 128
-        y: 544
-        width: 32
-        height: 32
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 7167aff3183a97b4b81cc3593d759358
-      internalID: -1254944826
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: mainlev_build_16
-      rect:
-        serializedVersion: 2
-        x: 528
-        y: 544
-        width: 32
-        height: 32
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 8e4dbf635c90517418940692bd737b4b
-      internalID: -526030765
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: mainlev_build_17
-      rect:
-        serializedVersion: 2
-        x: 320
-        y: 976
-        width: 32
-        height: 32
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 55bdfb52b5a8ded4f939c37a0e412784
-      internalID: -2127574887
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: mainlev_build_18
-      rect:
-        serializedVersion: 2
-        x: 272
-        y: 960
-        width: 32
-        height: 32
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 79995aa563de2e74f9e1fe8188da3297
-      internalID: -1865843802
+      spriteID: a7d839dc9b7aafb47beed48bd56d7b64
+      internalID: 728321669
       vertices: []
       indices: 
       edges: []
@@ -506,25 +422,21 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      mainlev_build_0: 611838244
-      mainlev_build_1: -653467368
-      mainlev_build_10: -1845569507
-      mainlev_build_11: -736977689
-      mainlev_build_12: 1691870486
-      mainlev_build_13: 221770083
-      mainlev_build_14: -14117518
-      mainlev_build_15: -1254944826
-      mainlev_build_16: -526030765
-      mainlev_build_17: -2127574887
-      mainlev_build_18: -1865843802
-      mainlev_build_2: -1177702295
-      mainlev_build_3: -980847317
-      mainlev_build_4: 431280267
-      mainlev_build_5: 1543710859
-      mainlev_build_6: 1705960915
-      mainlev_build_7: 794225670
-      mainlev_build_8: -1440586789
-      mainlev_build_9: -2076429209
+      mini_enemy_Taller_0: -1791144597
+      mini_enemy_Taller_1: -1071461220
+      mini_enemy_Taller_10: -1667611366
+      mini_enemy_Taller_11: 677088709
+      mini_enemy_Taller_12: 1216481302
+      mini_enemy_Taller_13: -1802322950
+      mini_enemy_Taller_14: 728321669
+      mini_enemy_Taller_2: 412395260
+      mini_enemy_Taller_3: -312928016
+      mini_enemy_Taller_4: 36421166
+      mini_enemy_Taller_5: 334546990
+      mini_enemy_Taller_6: 2089379530
+      mini_enemy_Taller_7: -1971491382
+      mini_enemy_Taller_8: -747585884
+      mini_enemy_Taller_9: -1276674739
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
