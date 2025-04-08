@@ -1,6 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!1 &824867551589140578
+--- !u!1 &191437585776460169
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -8,24 +8,24 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 8392954843883596902}
+  - component: {fileID: 4670058921606582658}
   m_Layer: 0
-  m_Name: GroundCheck
+  m_Name: AttackPoint
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &8392954843883596902
+--- !u!4 &4670058921606582658
 Transform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 824867551589140578}
+  m_GameObject: {fileID: 191437585776460169}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: -1.25, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -66,7 +66,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
-  - {fileID: 8392954843883596902}
+  - {fileID: 4670058921606582658}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &2696560862342529981
@@ -131,7 +131,7 @@ Animator:
   m_GameObject: {fileID: 1174427283919592266}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: f7f68161e369c6c45bc842a97586e058, type: 2}
+  m_Controller: {fileID: 9100000, guid: 33309ef24c40aa44fad5c55865f7ee19, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
@@ -201,8 +201,8 @@ CapsuleCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: -0.099731445, y: -0.017004132}
-  m_Size: {x: 1.8012085, y: 1.9154322}
+  m_Offset: {x: 0.019241333, y: -0.22129631}
+  m_Size: {x: 2.039154, y: 2.3240166}
   m_Direction: 0
 --- !u!61 &8728988870686352402
 BoxCollider2D:
@@ -236,18 +236,18 @@ BoxCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0.019821167, y: -1.0846951}
+  m_Offset: {x: 0.019821167, y: -1.4240524}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 2.0434783, y: 2.2173913}
+    oldSize: {x: 1.46875, y: 1.59375}
     newSize: {x: 1.88, y: 2.04}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 1.8981018, y: 0.5255594}
+  m_Size: {x: 1.8981018, y: 0.2653725}
   m_EdgeRadius: 0
 --- !u!114 &8146528397925675717
 MonoBehaviour:
@@ -262,7 +262,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 4.5
-  groundCheck: {fileID: 8392954843883596902}
+  groundCheck: {fileID: 0}
   groundLayer:
     serializedVersion: 2
     m_Bits: 8
