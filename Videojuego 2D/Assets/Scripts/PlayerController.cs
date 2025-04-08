@@ -9,8 +9,9 @@ public class Player : MonoBehaviour
     private Animator animator;
     public Transform groundCheck;
     public LayerMask groundLayer;
-    private bool enElPiso;
+    private bool enElPiso = false;
     public float jumpForce = 1f;
+    private bool mirandoDerecha;
     // Start is called before the first frame update
     void Start()
     {
@@ -20,36 +21,48 @@ public class Player : MonoBehaviour
 
     // Update is called once per frame
     void Update()
-    {
+    {   
         movimiento();
-        enElPiso = Physics2D.OverlapCircle(groundCheck.position, 0.1f, groundLayer);
+        gestionarOrientacion();
         Salto();
     }
 
     private void movimiento(){
+        animator.SetFloat("xVelocity", Mathf.Abs(rigidBody.velocity.x));
+        animator.SetFloat("yVelocity", rigidBody.velocity.y);
         horizontalInput = Input.GetAxis("Horizontal");
         Vector2 movimiento = new Vector2(speed*horizontalInput, 0f);
-        animator.SetBool("isRunning", true);
-        if(horizontalInput > 0)
-        {   
-            transform.localScale = new Vector3(1,1,1);
+        if(horizontalInput != 0)
+        {  
             rigidBody.velocity = new Vector2(movimiento.x, rigidBody.velocity.y);
-        }else if(horizontalInput < 0)
-        {
-            transform.localScale = new Vector3(-1,1,1);
-            rigidBody.velocity = new Vector2(movimiento.x, rigidBody.velocity.y);
-        }else
-        {
-            animator.SetBool("isRunning", false);
+        }
+        else{
+            if(enElPiso)
+            {
+                rigidBody.velocity = new Vector2(0, rigidBody.velocity.y);
+            }
+        }
+        
+    }
+    private void gestionarOrientacion(){
+        if((mirandoDerecha && horizontalInput > 0) || (!mirandoDerecha && horizontalInput < 0)){
+            mirandoDerecha = !mirandoDerecha;
+            transform.localScale = new Vector2(-transform.localScale.x, transform.lossyScale.y);
         }
     }
-
     private void Salto()
     {
         if (Input.GetKeyDown("space") && enElPiso)
         {
-            rigidBody.AddForce(new Vector2(0f, jumpForce), ForceMode2D.Impulse);
-            animator.SetTrigger("jump");
+            rigidBody.velocity = new Vector2(rigidBody.velocity.x, jumpForce);
+            enElPiso = false;
+            animator.SetBool("isJumping", !enElPiso);
         }
+    }
+
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        enElPiso = true;
+        animator.SetBool("isJumping", !enElPiso);
     }
 }
