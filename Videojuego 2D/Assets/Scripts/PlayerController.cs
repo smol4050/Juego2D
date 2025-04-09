@@ -17,12 +17,15 @@ public class Player : MonoBehaviour
     public int attackDamage = 20;
     public float attackCooldown = 1f;
     private float attackTimer = 0f;
+    public int maxHealth = 100;
+    private int currentHealth;
 
     // Start is called before the first frame update
     void Start()
     {
         rigidBody = GetComponent<Rigidbody2D>();
         animator = GetComponent<Animator>();
+        currentHealth = maxHealth;
     }
 
     // Update is called once per frame
@@ -50,6 +53,18 @@ public class Player : MonoBehaviour
             }
         }
         
+    }
+    public void TakeDamage(int damage)
+    {
+        currentHealth -= damage;
+        if (currentHealth <= 0)
+        {
+            Die();
+        }
+    }
+    private void Die()
+    {
+        // Lógica de muerte del jugador
     }
     private void gestionarOrientacion(){
         if((mirandoDerecha && horizontalInput > 0) || (!mirandoDerecha && horizontalInput < 0)){
