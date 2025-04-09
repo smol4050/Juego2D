@@ -13,7 +13,7 @@ public class BossController : MonoBehaviour
     public float detectionRange = 10f;
     private bool isDead = false;
     public int maxHealth = 1000;
-    private int currentHealth;
+    public int currentHealth;
     public BossHealthBarUI healthBarUI;
     private bool isDashing = false;
     public float dashSpeed = 20f;
@@ -140,8 +140,9 @@ public class BossController : MonoBehaviour
 
     public void TakeDamage(int damage)
     {
-        if (isInvulnerable)
+        if (isInvulnerable){
             return;
+        }
 
         currentHealth -= damage;
         animator.SetTrigger("isHurt");

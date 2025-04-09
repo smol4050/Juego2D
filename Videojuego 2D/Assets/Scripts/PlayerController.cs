@@ -97,8 +97,25 @@ public class Player : MonoBehaviour
         // Recorre cada enemigo detectado y le aplica daño
         foreach (Collider2D enemy in hitEnemies)
         {
-            enemy.GetComponent<Enemy>().TakeDamage(attackDamage);
-            Debug.Log("Se detectó " + enemy.gameObject.name);
+            try
+            {
+                enemy.GetComponent<Enemy>().TakeDamage(attackDamage);
+                Debug.Log("Se detectó " + enemy.gameObject.name);
+            }
+            catch (System.Exception e)
+            {
+                Debug.Log("Error 1: " + e.Message);
+            }
+            try{
+                enemy.GetComponent<BossController>().TakeDamage(attackDamage);
+                Debug.Log("Se detectó " + enemy.gameObject.name);
+            }
+            catch (System.Exception e)
+            {
+                Debug.Log("Error 2: " + e.Message);
+            }
+
+            
         }
     }
     else

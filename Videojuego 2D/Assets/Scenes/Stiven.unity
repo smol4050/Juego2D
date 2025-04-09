@@ -235,6 +235,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Player
       objectReference: {fileID: 0}
+    - target: {fileID: 4670058921606582658, guid: e472c0157410dad4da568069578d36b8, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0.759
+      objectReference: {fileID: 0}
     - target: {fileID: 5145974131818766655, guid: e472c0157410dad4da568069578d36b8, type: 3}
       propertyPath: m_LocalPosition.x
       value: -5.8
@@ -274,6 +278,14 @@ PrefabInstance:
     - target: {fileID: 5145974131818766655, guid: e472c0157410dad4da568069578d36b8, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8146528397925675717, guid: e472c0157410dad4da568069578d36b8, type: 3}
+      propertyPath: attackRange
+      value: 0.65
+      objectReference: {fileID: 0}
+    - target: {fileID: 8146528397925675717, guid: e472c0157410dad4da568069578d36b8, type: 3}
+      propertyPath: enemyLayers.m_Bits
+      value: 64
       objectReference: {fileID: 0}
     - target: {fileID: 8728988870686352402, guid: e472c0157410dad4da568069578d36b8, type: 3}
       propertyPath: m_Size.y
@@ -5916,6 +5928,7 @@ MonoBehaviour:
   attackRange: 2
   detectionRange: 10
   maxHealth: 1000
+  currentHealth: 0
   healthBarUI: {fileID: 1497862688}
   dashSpeed: 20
   dashDuration: 0.5
