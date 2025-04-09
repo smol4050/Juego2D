@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 2993660542624001024}
   - component: {fileID: 2158569615670859506}
   - component: {fileID: 580568060314271358}
-  - component: {fileID: 1263881222188782915}
+  - component: {fileID: -4780931152839487853}
   m_Layer: 0
   m_Name: GreenApple
   m_TagString: Untagged
@@ -29,8 +29,8 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 439, y: 271, z: 0}
-  m_LocalScale: {x: 448.1097, y: 448.1097, z: 448.1097}
-  m_ConstrainProportionsScale: 0
+  m_LocalScale: {x: 2.15, y: 2.1510067, z: 2.1510067}
+  m_ConstrainProportionsScale: 1
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -74,7 +74,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 22
   m_Sprite: {fileID: 1987925844, guid: 7822c6cc4f021de4f98248761475a31b, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -131,7 +131,7 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 0.12, y: 0.15}
   m_EdgeRadius: 0
---- !u!114 &1263881222188782915
+--- !u!114 &-4780931152839487853
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -143,4 +143,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1c6f1fc143f8202439c0999ab5178f53, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  appleType: GreenApple
+  cantidadPuntos: 1

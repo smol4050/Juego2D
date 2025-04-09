@@ -5,36 +5,15 @@ using UnityEngine;
 
 public class GameControllerScene1 : MonoBehaviour
 {
-    [SerializeField] private TextMeshPro txtAppleScore;
+    [SerializeField] private TextMeshProUGUI txtAppleScore;
 
-    // Start is called before the first frame update
-    void Start()
+    public void Update()
     {
-        
+        txtAppleScore.text = GameManager.Instance.appleScore.ToString();
     }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
-
-    public int GetAppleValue(string appleType)
-    {
-        switch (appleType)
-        {
-            case "RedApple":
-                return 3;
-            case "GreenApple":
-                return 1;
-            default:
-                return 0;
-        }
-    }
-
-
     public void ShowScore()
     {
-        txtAppleScore.text = GameManager.Instance.AppleScore.ToString();
+        
+        
     }
 }
