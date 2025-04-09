@@ -11,7 +11,7 @@ TagManager:
   - Suelo
   - Water
   - UI
-  - 
+  - Enemy
   - 
   - 
   - 
@@ -38,24 +38,6 @@ TagManager:
   - 
   - 
   m_SortingLayers:
-  - name: Cielo
-    uniqueID: 2968182713
-    locked: 0
-  - name: FondoAtras2
-    uniqueID: 3574987413
-    locked: 0
-  - name: FondoAtras1
-    uniqueID: 198724573
-    locked: 0
-  - name: Arboles
-    uniqueID: 829254685
-    locked: 0
   - name: Default
     uniqueID: 0
-    locked: 0
-  - name: TileMapBase
-    uniqueID: 1048029483
-    locked: 0
-  - name: FondoDelantero
-    uniqueID: 670313081
     locked: 0

@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Parallax_Background_Taller : MonoBehaviour
+public class Parallax_Background_Scene1 : MonoBehaviour
 {
 
     Transform cam; //Main Camera
@@ -63,7 +63,7 @@ public class Parallax_Background_Taller : MonoBehaviour
         distance_y = cam.position.y - camStartPos.y;
 
         // Que el objeto contenedor general siga a la cámara en X (no en Y)
-        transform.position = new Vector3(cam.position.x-0.42f, transform.position.y, transform.position.z);
+        transform.position = new Vector3(cam.position.x-0.52f, transform.position.y, transform.position.z);
 
         for (int i = 0; i < backgrounds.Length; i++)
         {
