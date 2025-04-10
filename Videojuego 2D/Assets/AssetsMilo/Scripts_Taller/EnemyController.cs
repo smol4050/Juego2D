@@ -41,16 +41,6 @@ public class EnemyController : MonoBehaviour
 
         rb.MovePosition(rb.position + speed * Time.deltaTime * movement);
 
-        horizontal = Input.GetAxisRaw("Horizontal");
-
-        if (horizontal < 0)
-        {
-            transform.localScale = new Vector3(-1, 1, 1);
-        }
-        else if (horizontal > 0)
-        {
-            transform.localScale = new Vector3(1, 1, 1);
-        }
     }
 
     private void OnDrawGizmosSelected()
