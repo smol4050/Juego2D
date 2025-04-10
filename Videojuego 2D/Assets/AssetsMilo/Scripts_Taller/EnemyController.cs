@@ -9,14 +9,12 @@ public class EnemyController : MonoBehaviour
     public float attackRange = 1.0f;
 
     float xinicial, yinicial;
-    float horizontal;
-
-    private Rigidbody2D rb;
-    private Vector2 movement;
+    //private Rigidbody2D rb;
+    //private Vector2 movement;
 
     void Start()
     {
-        rb = GetComponent<Rigidbody2D>();
+        //rb = GetComponent<Rigidbody2D>();
 
         xinicial = transform.position.x;
         yinicial = transform.position.y;
@@ -30,16 +28,21 @@ public class EnemyController : MonoBehaviour
 
         if (distanceToPlayer < attackRange)
         {
-            Vector2 direction = (player.position - transform.position).normalized;
-            
-            movement = new Vector2(direction.x, direction.y);
+            transform.position = Vector2.MoveTowards(transform.position, player.position, speed * Time.deltaTime);
+
+            //Vector2 direction = (player.position - transform.position).normalized;
+
+            //movement = new Vector2(direction.x, direction.y);
         }
         else
         {
-            movement = Vector2.zero;
+            // If the player is outside the attack range, move back to the initial position
+            transform.position = Vector2.MoveTowards(transform.position, new Vector2(xinicial, yinicial), speed * Time.deltaTime);
+            //movement = Vector2.zero;
         }
 
-        rb.MovePosition(rb.position + speed * Time.deltaTime * movement);
+        //rb.MovePosition(rb.position + speed * Time.deltaTime * movement);
+
 
     }
 
