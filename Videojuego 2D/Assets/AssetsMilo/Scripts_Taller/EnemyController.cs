@@ -7,6 +7,12 @@ public class EnemyController : MonoBehaviour
     public Transform player;
     public float speed = 5.0f;
     public float attackRange = 1.0f;
+    [SerializeField] private float attackCooldown = 1.0f; // Tiempo de recarga del ataque
+    [SerializeField] private float minDistance; 
+    private Animator Animator;
+
+    //public int maxHealth = 100;
+    //public int currentHealth;
 
     float xinicial, yinicial;
     //private Rigidbody2D rb;
@@ -19,6 +25,9 @@ public class EnemyController : MonoBehaviour
         xinicial = transform.position.x;
         yinicial = transform.position.y;
 
+        //currentHealth = maxHealth;
+        Animator = GetComponent<Animator>();
+
     }
 
     // Update is called once per frame
@@ -29,6 +38,14 @@ public class EnemyController : MonoBehaviour
         if (distanceToPlayer < attackRange)
         {
             transform.position = Vector2.MoveTowards(transform.position, player.position, speed * Time.deltaTime);
+
+            if(distanceToPlayer < minDistance)
+            {
+                // Attack the player
+                Animator.SetTrigger("Attack");
+                // Implement attack logic here
+                Debug.Log("Attacking the player!");
+            }
 
             //Vector2 direction = (player.position - transform.position).normalized;
 
@@ -45,6 +62,22 @@ public class EnemyController : MonoBehaviour
 
 
     }
+
+    //public void TakeDamage(int damage)
+    //{
+    //    currentHealth -= damage;
+    //    Debug.Log("Enemy took damage: " + damage);
+    //    if (currentHealth <= 0)
+    //    {
+    //        Die();
+    //    }
+    //}
+
+    //void Die()
+    //{
+    //    Debug.Log("Enemy died!");
+    //    gameObject.SetActive(false); // Desactiva el objeto enemigo
+    //}
 
     private void OnDrawGizmosSelected()
     {
