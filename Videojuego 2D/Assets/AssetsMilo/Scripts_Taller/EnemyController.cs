@@ -11,8 +11,8 @@ public class EnemyController : MonoBehaviour
     [SerializeField] private float minDistance; 
     private Animator Animator;
 
-    public int maxHealth = 100;
-    public int currentHealth;
+    //public int maxHealth = 100;
+    //public int currentHealth;
 
     float xinicial, yinicial;
     //private Rigidbody2D rb;
@@ -25,7 +25,7 @@ public class EnemyController : MonoBehaviour
         xinicial = transform.position.x;
         yinicial = transform.position.y;
 
-        currentHealth = maxHealth;
+        //currentHealth = maxHealth;
         Animator = GetComponent<Animator>();
 
     }
@@ -63,20 +63,21 @@ public class EnemyController : MonoBehaviour
 
     }
 
-    public void TakeDamage(int damage)
-    {
-        currentHealth -= damage;
-        if (currentHealth <= 0)
-        {
-            Die();
-        }
-    }
+    //public void TakeDamage(int damage)
+    //{
+    //    currentHealth -= damage;
+    //    Debug.Log("Enemy took damage: " + damage);
+    //    if (currentHealth <= 0)
+    //    {
+    //        Die();
+    //    }
+    //}
 
-    void Die()
-    {
-        Debug.Log("Enemy died!");
-        gameObject.SetActive(false); // Desactiva el objeto enemigo
-    }
+    //void Die()
+    //{
+    //    Debug.Log("Enemy died!");
+    //    gameObject.SetActive(false); // Desactiva el objeto enemigo
+    //}
 
     private void OnDrawGizmosSelected()
     {
