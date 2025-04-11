@@ -10,7 +10,7 @@ public class controladorSonidoJugador : MonoBehaviour
     [SerializeField] private AudioClip RunAudio;
 
     public AudioSource audioSource;
-
+    public AudioSource pasos;
     private void Awake()
     {
         audioSource = GetComponent<AudioSource>();
@@ -30,7 +30,7 @@ public class controladorSonidoJugador : MonoBehaviour
 
     public void soundRun(float volume)
     {
-        audioSource.PlayOneShot(RunAudio, volume);
+        pasos.Play();
     }
 }
 

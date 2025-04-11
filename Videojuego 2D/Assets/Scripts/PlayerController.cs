@@ -19,6 +19,9 @@ public class PlayerController : MonoBehaviour, IDamage
     private float attackTimer = 0f;
     public int PlayermaxHealth = 100;
     public int PlayercurrentHealth;
+    public bool Hactivo;
+    private bool enElPisoAnterior;
+
 
     [SerializeField] controladorSonidoJugador controladorSonidoJugador;
 
@@ -38,6 +41,7 @@ public class PlayerController : MonoBehaviour, IDamage
         gestionarOrientacion();
         Salto();
         Dead();
+        enElPisoAnterior = enElPiso;
     }
 
     private void movimiento(){
@@ -47,16 +51,33 @@ public class PlayerController : MonoBehaviour, IDamage
         Vector2 movimiento = new Vector2(speed*horizontalInput, 0f);
         if(horizontalInput != 0)
         {  
+            Hactivo = true;
             rigidBody.velocity = new Vector2(movimiento.x, rigidBody.velocity.y);
-            controladorSonidoJugador.soundRun(0.5f);
+            
         }
         else{
             if(enElPiso)
             {
                 rigidBody.velocity = new Vector2(0, rigidBody.velocity.y);
             }
+            Hactivo = false;
         }
-        
+
+        if (enElPiso && Hactivo)
+        {
+            if (!controladorSonidoJugador.pasos.isPlaying)
+            {
+                controladorSonidoJugador.pasos.Play();
+            }
+        }
+        else
+        {
+            if (controladorSonidoJugador.pasos.isPlaying)
+            {
+                controladorSonidoJugador.pasos.Stop();
+            }
+
+        }
 
     }
 
