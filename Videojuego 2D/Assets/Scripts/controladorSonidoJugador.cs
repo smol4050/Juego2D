@@ -6,6 +6,7 @@ public class controladorSonidoJugador : MonoBehaviour
 {
 
     [SerializeField] private AudioClip[] AtackAudios;
+    [SerializeField] private AudioClip[] DamageReceived;
     [SerializeField] private AudioClip JumpAudio;
     [SerializeField] private AudioClip RunAudio;
 
@@ -16,19 +17,25 @@ public class controladorSonidoJugador : MonoBehaviour
         audioSource = GetComponent<AudioSource>();
     }
 
-    public void selectAudioAtack(float volume)
+    public void selectAudioAtack()
     {
         int sonidoElegido = Random.Range(0, AtackAudios.Length);
-        audioSource.PlayOneShot(AtackAudios[sonidoElegido], volume);
+        audioSource.PlayOneShot(AtackAudios[sonidoElegido]);
 
     }
 
-    public void soundJump(float volume)
+    public void selectAudioDamageReceived()
     {
-        audioSource.PlayOneShot(JumpAudio, volume);
+        int sonidoElegido = Random.Range(0, DamageReceived.Length);
+        audioSource.PlayOneShot(DamageReceived[sonidoElegido]);
     }
 
-    public void soundRun(float volume)
+    public void soundJump()
+    {
+        audioSource.PlayOneShot(JumpAudio);
+    }
+
+    public void soundRun()
     {
         pasos.Play();
     }
