@@ -35,7 +35,7 @@ public class Timer : MonoBehaviour
         {
             print("START");
             isRunning = true;
-            startTime = Time.time;
+            startTime = Time.time - timerTime;  // Asegurarse que el tiempo continue donde se dejó al cambiar de escena
         }
     }
 
@@ -46,13 +46,15 @@ public class Timer : MonoBehaviour
             print("STOP");
             isRunning = false;
             stopTime = timerTime;
-            Debug.Log(stopTime.ToString());
+            Debug.Log("Tiempo detenido" + stopTime.ToString());
             ///
             if (stopTime >= 30)
             {
                 respuestaAudio.clip = stop;
                 respuestaAudio.Play();
             }
+            // Guardar el tiempo en el GameManager_Taller
+            GameManager_Taller.Instance.SetTiempo((int)stopTime);
 
         }
     }
@@ -68,13 +70,14 @@ public class Timer : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        timerTime = stopTime + (Time.time - startTime);
-        int minutesInt = (int)timerTime / 60;
-        int secondsInt = (int)timerTime % 60;
-        int seconds100Int = (int)(Mathf.Floor((timerTime - (secondsInt + minutesInt * 60)) * 100));
-
         if (isRunning)
         {
+            timerTime = stopTime + (Time.time - startTime);
+            int minutesInt = (int)timerTime / 60;
+            int secondsInt = (int)timerTime % 60;
+            int seconds100Int = (int)(Mathf.Floor((timerTime - (secondsInt + minutesInt * 60)) * 100));
+
+
             timerMinutes.text = (minutesInt < 10) ? "0" + minutesInt : minutesInt.ToString();
             timerSeconds.text = (secondsInt < 10) ? "0" + secondsInt : secondsInt.ToString();
             timerSeconds100.text = (seconds100Int < 10) ? "0" + seconds100Int : seconds100Int.ToString();
