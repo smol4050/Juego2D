@@ -11,7 +11,7 @@ public class BossController : MonoBehaviour
     public float detectionRange = 10f;
     public int maxHealth = 1000;
     public BossHealthBarUI healthBarUI;
-    public float dashSpeed = 20f;
+    public float dashSpeed = 9f;
     public float dashDuration = 1f;
     public float dashCooldown = 2f;
     public float attackCooldown = 2f;
@@ -152,7 +152,7 @@ public class BossController : MonoBehaviour
         animator.SetTrigger("isDashing");
 
         float dashTime = 0.1f;
-        float dashDistance = 20f;
+        float dashDistance = 9f;
         float elapsedTime = 0f;
         Vector2 startPosition = rb.position;
         Vector2 targetPosition = startPosition + direction.normalized * dashDistance;
