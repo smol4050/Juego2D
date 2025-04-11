@@ -1,6 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!1 &191437585776460169
+--- !u!1 &2600190351814440604
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -8,7 +8,7 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 4670058921606582658}
+  - component: {fileID: 3817581510554213356}
   m_Layer: 0
   m_Name: AttackPoint
   m_TagString: Untagged
@@ -16,22 +16,22 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &4670058921606582658
+--- !u!4 &3817581510554213356
 Transform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 191437585776460169}
+  m_GameObject: {fileID: 2600190351814440604}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0.547, y: -0.038, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 5145974131818766655}
+  m_Father: {fileID: 5247505416191860203}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1 &1174427283919592266
+--- !u!1 &7384514186937675000
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -39,13 +39,13 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 5145974131818766655}
-  - component: {fileID: 2696560862342529981}
-  - component: {fileID: 3294466040604321337}
-  - component: {fileID: 9167587364864056403}
-  - component: {fileID: 403117737471830230}
-  - component: {fileID: 8728988870686352402}
-  - component: {fileID: 8146528397925675717}
+  - component: {fileID: 5247505416191860203}
+  - component: {fileID: 2255210933307135512}
+  - component: {fileID: 8234420659378974928}
+  - component: {fileID: 4804072166333417973}
+  - component: {fileID: 7163588245226634307}
+  - component: {fileID: 1776362600276271135}
+  - component: {fileID: 2879464223545384557}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -53,29 +53,29 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &5145974131818766655
+--- !u!4 &5247505416191860203
 Transform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1174427283919592266}
+  m_GameObject: {fileID: 7384514186937675000}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -373.87, y: -2.54, z: 0}
+  m_LocalPosition: {x: -5.84, y: -2.51, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
-  - {fileID: 4670058921606582658}
+  - {fileID: 3817581510554213356}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!212 &2696560862342529981
+--- !u!212 &2255210933307135512
 SpriteRenderer:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1174427283919592266}
+  m_GameObject: {fileID: 7384514186937675000}
   m_Enabled: 1
   m_CastShadows: 0
   m_ReceiveShadows: 0
@@ -121,14 +121,14 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!95 &3294466040604321337
+--- !u!95 &8234420659378974928
 Animator:
   serializedVersion: 5
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1174427283919592266}
+  m_GameObject: {fileID: 7384514186937675000}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
   m_Controller: {fileID: 9100000, guid: 33309ef24c40aa44fad5c55865f7ee19, type: 2}
@@ -142,14 +142,14 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
---- !u!50 &9167587364864056403
+--- !u!50 &4804072166333417973
 Rigidbody2D:
   serializedVersion: 4
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1174427283919592266}
+  m_GameObject: {fileID: 7384514186937675000}
   m_BodyType: 0
   m_Simulated: 1
   m_UseFullKinematicContacts: 0
@@ -169,13 +169,13 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 4
---- !u!70 &403117737471830230
+--- !u!70 &7163588245226634307
 CapsuleCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1174427283919592266}
+  m_GameObject: {fileID: 7384514186937675000}
   m_Enabled: 1
   m_Density: 1
   m_Material: {fileID: 6200000, guid: 73e24166c286a724a99aec664e9468f0, type: 2}
@@ -204,13 +204,13 @@ CapsuleCollider2D:
   m_Offset: {x: -0.0070648193, y: 0.102659345}
   m_Size: {x: 1.55, y: 1.6438911}
   m_Direction: 0
---- !u!61 &8728988870686352402
+--- !u!61 &1776362600276271135
 BoxCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1174427283919592266}
+  m_GameObject: {fileID: 7384514186937675000}
   m_Enabled: 1
   m_Density: 1
   m_Material: {fileID: 0}
@@ -249,13 +249,13 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1.8981018, y: 0.3094349}
   m_EdgeRadius: 0
---- !u!114 &8146528397925675717
+--- !u!114 &2879464223545384557
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1174427283919592266}
+  m_GameObject: {fileID: 7384514186937675000}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: fe0d31071bbc83f4696801ce3a476508, type: 3}
@@ -266,7 +266,7 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 8
   jumpForce: 10
-  attackPoint: {fileID: 4670058921606582658}
+  attackPoint: {fileID: 3817581510554213356}
   attackRange: 0.57
   enemyLayers:
     serializedVersion: 2
