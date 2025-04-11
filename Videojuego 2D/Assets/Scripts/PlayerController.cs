@@ -1,7 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-public class Player : MonoBehaviour
+public class PlayerController : MonoBehaviour, IDamage
 {
     float horizontalInput;
     public float speed = 1;
@@ -17,15 +17,15 @@ public class Player : MonoBehaviour
     public int attackDamage = 20;
     public float attackCooldown = 1f;
     private float attackTimer = 0f;
-    public int maxHealth = 100;
-    private int currentHealth;
+    public int PlayermaxHealth = 100;
+    public int PlayercurrentHealth;
 
     // Start is called before the first frame update
     void Start()
     {
         rigidBody = GetComponent<Rigidbody2D>();
         animator = GetComponent<Animator>();
-        currentHealth = maxHealth;
+        PlayercurrentHealth = PlayermaxHealth;
     }
 
     // Update is called once per frame
@@ -35,6 +35,7 @@ public class Player : MonoBehaviour
         movimiento();
         gestionarOrientacion();
         Salto();
+        Dead();
     }
 
     private void movimiento(){
@@ -54,18 +55,7 @@ public class Player : MonoBehaviour
         }
         
     }
-    public void TakeDamage(int damage)
-    {
-        currentHealth -= damage;
-        if (currentHealth <= 0)
-        {
-            Die();
-        }
-    }
-    private void Die()
-    {
-        // Lógica de muerte del jugador
-    }
+
     private void gestionarOrientacion(){
         if((mirandoDerecha && horizontalInput > 0) || (!mirandoDerecha && horizontalInput < 0)){
             mirandoDerecha = !mirandoDerecha;
@@ -99,8 +89,8 @@ public class Player : MonoBehaviour
         {
             try
             {
-                enemy.GetComponent<Enemy>().TakeDamage(attackDamage);
-                Debug.Log("Se detectó " + enemy.gameObject.name);
+                IDamage damageable = enemy.GetComponent<IDamage>();
+                damageable.TakeDamage(attackDamage);
             }
             catch (System.Exception e)
             {
@@ -143,5 +133,24 @@ public class Player : MonoBehaviour
         if (attackPoint == null) return; // Si no hay un attackPoint, no dibuja nada
         Gizmos.color = Color.red;
         Gizmos.DrawWireSphere(attackPoint.position, attackRange); // Dibuja un círculo rojo en el punto de ataque
+    }
+
+    public void TakeDamage(int damage)
+    {
+        PlayercurrentHealth -= damage;
+        animator.SetTrigger("hit");
+        Debug.Log("Player took damage: " + damage + ", current health: " + PlayercurrentHealth);
+    }
+
+    private void Dead(){
+        if (PlayercurrentHealth <= 0){
+            Debug.Log("Player died!");
+            animator.SetTrigger("die");
+        }
+    }
+    public void DesacivarJugador()
+    {
+        Debug.Log("Jugador desactivado tras animación.");
+        gameObject.SetActive(false);
     }
 }

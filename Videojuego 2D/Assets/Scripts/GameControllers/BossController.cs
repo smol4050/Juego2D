@@ -1,42 +1,43 @@
 using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class BossController : MonoBehaviour
 {
-    private bool isInvulnerable = false;
     private Animator animator;
     private Rigidbody2D rb;
     public Transform player;
-    public float moveSpeed = 3f;
+    public GameObject spellPrefab;
+    public float moveSpeed = 1f;
     public float attackRange = 2f;
     public float detectionRange = 10f;
-    private bool isDead = false;
     public int maxHealth = 1000;
-    public int currentHealth;
     public BossHealthBarUI healthBarUI;
-    private bool isDashing = false;
-    public float dashSpeed = 20f;
+    public float dashSpeed = 3f;
     public float dashDuration = 0.5f;
-    public float dashCooldown = 1f;
-    private GameObject attackHitbox;
+    public float dashCooldown = 5f;
     public float attackCooldown = 2f;
+
+    public float spellCooldown = 4f;
+    private bool canCastSpell = true;
+    private int currentHealth;
+    private bool isDead = false;
+    private bool isInvulnerable = false;
+    private bool isDashing = false;
     private bool canAttack = true;
-
-
+    private bool canDash = true;
+    private GameObject attackHitbox;
 
     private void Start()
     {
-        currentHealth = maxHealth;
-        healthBarUI.SetMaxHealth(maxHealth);
-        healthBarUI.Hide();
         animator = GetComponent<Animator>();
         rb = GetComponent<Rigidbody2D>();
         attackHitbox = transform.Find("AttackHitbox").gameObject;
         attackHitbox.SetActive(false);
 
+        currentHealth = maxHealth;
+        healthBarUI.SetMaxHealth(maxHealth);
+        healthBarUI.Hide();
     }
-
 
     private void Update()
     {
@@ -44,48 +45,89 @@ public class BossController : MonoBehaviour
 
         float distanceToPlayer = Vector2.Distance(transform.position, player.position);
 
-        if (distanceToPlayer <= attackRange)
+        switch (currentState)
         {
-            Attack();
-        }
-        else if (distanceToPlayer <= detectionRange)
-        {
-            if (!isDashing)
-            {
+            case BossState.Idle:
+                if (distanceToPlayer <= detectionRange)
+                {
+                    currentState = BossState.Chasing;
+                }
+                break;
+
+            case BossState.Chasing:
+                if (distanceToPlayer <= attackRange)
+                {
+                    currentState = BossState.Attacking;
+                }
+                else if (canCastSpell)
+                {
+                    currentState = BossState.Casting;
+                }
+                else if (canDash)
+                {
+                    currentState = BossState.Dashing;
+                }
+                else
+                {
+                    ChasePlayer();
+                }
+                break;
+
+            case BossState.Attacking:
+                if (canAttack)
+                {
+                    Attack();
+                }
+                currentState = BossState.Chasing;
+                break;
+
+            case BossState.Dashing:
                 StartCoroutine(Dash((player.position - transform.position).normalized));
-            }
-            else
-            {
-                ChasePlayer();
-            }
+                currentState = BossState.Chasing;
+                break;
+
+            case BossState.Casting:
+                StartCoroutine(CastSpell());
+                currentState = BossState.Chasing;
+                break;
+
+            case BossState.Retreating:
+                RetreatFromPlayer();
+                if (distanceToPlayer >= detectionRange)
+                {
+                    currentState = BossState.Idle;
+                }
+                break;
         }
-        else
-        {
-            Idle();
-        }
     }
 
-    public void EnableHitbox()
+
+
+
+    private enum BossState
     {
-        attackHitbox.SetActive(true);
+        Idle,
+        Chasing,
+        Attacking,
+        Dashing,
+        Casting,
+        Retreating
     }
 
-    public void DisableHitbox()
-    {
-        attackHitbox.SetActive(false);
-    }
+    private BossState currentState = BossState.Idle;
 
-    public void Appear()
-    {
-        
-        healthBarUI.Show();
-    }
 
     private void ChasePlayer()
     {
         animator.SetBool("isWalking", true);
         Vector2 direction = (player.position - transform.position).normalized;
         rb.velocity = new Vector2(direction.x * moveSpeed, rb.velocity.y);
+    }
+
+    private void Idle()
+    {
+        animator.SetBool("isWalking", false);
+        rb.velocity = Vector2.zero;
     }
 
     private void Attack()
@@ -104,45 +146,41 @@ public class BossController : MonoBehaviour
         canAttack = true;
     }
 
-    public void OnAttackAnimationEnd()
-    {
-        animator.SetBool("isAttacking", false);
-    }
-
-    private void Idle()
-    {
-        animator.SetBool("isWalking", false);
-        rb.velocity = Vector2.zero;
-    }
-
     private IEnumerator Dash(Vector2 direction)
     {
-        if (isDashing)
+        if (!canDash || isDashing)
             yield break;
 
         isDashing = true;
+        canDash = false;
         SetInvulnerable(true);
-        animator.SetTrigger("DashTrigger");
-        float originalGravity = rb.gravityScale;
-        rb.gravityScale = 0;
-        rb.velocity = direction.normalized * dashSpeed;
-        yield return new WaitForSeconds(dashDuration);
-        rb.gravityScale = originalGravity;
-        rb.velocity = Vector2.zero;
+        animator.SetTrigger("isDashing");
+
+        float dashTime = 0.5f;
+        float dashDistance = 6f;
+        float elapsedTime = 0f;
+        Vector2 startPosition = rb.position;
+        Vector2 targetPosition = startPosition + direction.normalized * dashDistance;
+
+        while (elapsedTime < dashTime)
+        {
+            rb.MovePosition(Vector2.Lerp(startPosition, targetPosition, elapsedTime / dashTime));
+            elapsedTime += Time.deltaTime;
+            yield return null;
+        }
+
+        rb.MovePosition(targetPosition);
         SetInvulnerable(false);
-        yield return new WaitForSeconds(dashCooldown);
         isDashing = false;
+
+        yield return new WaitForSeconds(dashCooldown);
+        canDash = true;
     }
-
-
-
-
 
     public void TakeDamage(int damage)
     {
-        if (isInvulnerable){
+        if (isInvulnerable || isDead)
             return;
-        }
 
         currentHealth -= damage;
         animator.SetTrigger("isHurt");
@@ -159,16 +197,66 @@ public class BossController : MonoBehaviour
         isDead = true;
         animator.SetBool("isDead", true);
         rb.velocity = Vector2.zero;
-
         GetComponent<Collider2D>().enabled = false;
         this.enabled = false;
         healthBarUI.Hide();
-
     }
+
+    private void RetreatFromPlayer()
+    {
+        animator.SetBool("isWalking", true);
+        Vector2 direction = (transform.position - player.position).normalized;
+        rb.velocity = new Vector2(direction.x * moveSpeed, rb.velocity.y);
+    }
+
+    private IEnumerator CastSpell()
+    {
+        if (!canCastSpell) yield break;
+
+        canCastSpell = false;
+        animator.SetTrigger("isCasting");
+
+        
+        float castAnimationDuration = 1f;
+        yield return new WaitForSeconds(castAnimationDuration);
+
+        
+        Vector3 spellPosition = new Vector3(player.position.x, -1.25f, player.position.z);
+        GameObject spellInstance = Instantiate(spellPrefab, spellPosition, Quaternion.identity);
+
+        
+        Animator spellAnimator = spellInstance.GetComponent<Animator>();
+        if (spellAnimator != null)
+        {
+            yield return new WaitForSeconds(spellAnimator.GetCurrentAnimatorStateInfo(0).length);
+        }
+
+        Destroy(spellInstance);
+
+        yield return new WaitForSeconds(spellCooldown);
+        canCastSpell = true;
+    }
+
+
+
 
     public void SetInvulnerable(bool state)
     {
         isInvulnerable = state;
     }
-}
 
+    public void EnableHitbox()
+    {
+        attackHitbox.SetActive(true);
+    }
+
+    public void DisableHitbox()
+    {
+        attackHitbox.SetActive(false);
+    }
+
+    public void Appear()
+    {
+        healthBarUI.Show();
+    }
+}

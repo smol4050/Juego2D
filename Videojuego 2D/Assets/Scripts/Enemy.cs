@@ -1,33 +1,32 @@
 using System.Collections;
 using System.Collections.Generic;
+using JetBrains.Annotations;
 using UnityEngine;
 
-public class Enemy : MonoBehaviour
+public abstract class Enemy : MonoBehaviour, IDamage
 {
-    public int maxHealth = 100;
-    public int currentHealth;
+    [SerializeField] protected int enemyMaxHealth = 100;
+    [SerializeField] protected int enemyCurrentHealth;
 
-    void Start()
+    protected virtual void Start()
     {
-        currentHealth = maxHealth;
+        enemyCurrentHealth = enemyMaxHealth;
     }
 
-    public void TakeDamage(int damage)
+    public virtual void TakeDamage(int damage)
     {
-        currentHealth -= damage;
-        if (currentHealth <= 0)
+        enemyCurrentHealth -= damage;
+        if (enemyCurrentHealth <= 0)
         {
             Die();
         }
     }
-
-    void Die()
-    {
-        Debug.Log("Enemy died!");
-        gameObject.SetActive(false); // Desactiva el objeto enemigo
+    
+    protected virtual void Die(){
+        Debug.Log("Enemy died!");   
+        gameObject.SetActive(false);
     }
-
-    // Update is called once per frame
+    
     void Update()
     {
         
