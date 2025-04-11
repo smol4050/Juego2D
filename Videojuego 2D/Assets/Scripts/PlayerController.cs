@@ -138,20 +138,19 @@ public class PlayerController : MonoBehaviour, IDamage
     public void TakeDamage(int damage)
     {
         PlayercurrentHealth -= damage;
+        animator.SetTrigger("hit");
         Debug.Log("Player took damage: " + damage + ", current health: " + PlayercurrentHealth);
-        if (PlayercurrentHealth <= 0)
-        {
-            Dead();
-        }
     }
 
-    public void Dead(){
-        if (PlayercurrentHealth <= 0)
-        {
+    private void Dead(){
+        if (PlayercurrentHealth <= 0){
             Debug.Log("Player died!");
-            animator.SetTrigger("Die");
-            gameObject.SetActive(false);
-            
+            animator.SetTrigger("die");
         }
+    }
+    public void DesacivarJugador()
+    {
+        Debug.Log("Jugador desactivado tras animación.");
+        gameObject.SetActive(false);
     }
 }
