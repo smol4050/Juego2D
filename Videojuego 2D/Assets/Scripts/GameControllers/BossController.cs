@@ -211,11 +211,13 @@ public class BossController : MonoBehaviour
         if (isDead) return;
 
         isDead = true;
+        sonidoBoss.DetenerSonidosRandom();
         animator.SetBool("isDead", true);
         rb.velocity = Vector2.zero;
 
         
         StartCoroutine(HandleDeath());
+       
     }
 
     private IEnumerator HandleDeath()
