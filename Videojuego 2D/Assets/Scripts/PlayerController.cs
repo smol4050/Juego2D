@@ -19,6 +19,11 @@ public class PlayerController : MonoBehaviour, IDamage
     private float attackTimer = 0f;
     public int PlayermaxHealth = 100;
     public int PlayercurrentHealth;
+    public bool Hactivo;
+    private bool enElPisoAnterior;
+
+
+    [SerializeField] controladorSonidoJugador controladorSonidoJugador;
 
     // Start is called before the first frame update
     void Start()
@@ -36,6 +41,7 @@ public class PlayerController : MonoBehaviour, IDamage
         gestionarOrientacion();
         Salto();
         Dead();
+        enElPisoAnterior = enElPiso;
     }
 
     private void movimiento(){
@@ -45,15 +51,34 @@ public class PlayerController : MonoBehaviour, IDamage
         Vector2 movimiento = new Vector2(speed*horizontalInput, 0f);
         if(horizontalInput != 0)
         {  
+            Hactivo = true;
             rigidBody.velocity = new Vector2(movimiento.x, rigidBody.velocity.y);
+            
         }
         else{
             if(enElPiso)
             {
                 rigidBody.velocity = new Vector2(0, rigidBody.velocity.y);
             }
+            Hactivo = false;
         }
-        
+
+        if (enElPiso && Hactivo)
+        {
+            if (!controladorSonidoJugador.pasos.isPlaying)
+            {
+                controladorSonidoJugador.pasos.Play();
+            }
+        }
+        else
+        {
+            if (controladorSonidoJugador.pasos.isPlaying)
+            {
+                controladorSonidoJugador.pasos.Stop();
+            }
+
+        }
+
     }
 
     private void gestionarOrientacion(){
@@ -69,14 +94,18 @@ public class PlayerController : MonoBehaviour, IDamage
             rigidBody.velocity = new Vector2(rigidBody.velocity.x, jumpForce);
             enElPiso = false;
             animator.SetBool("isJumping", !enElPiso);
+            controladorSonidoJugador.soundJump(0.5f);
         }
+        
     }
  
     private void attack()
 {
-    // Si se presiona "f" y se cumplió el cooldown:
-    if (Input.GetKeyDown("f") && attackTimer <= 0f)
+        
+        // Si se presiona "f" y se cumplió el cooldown:
+        if (Input.GetKeyDown("f") && attackTimer <= 0f)
     {
+        controladorSonidoJugador.selectAudioAtack(0.5f);
         // Resetea el temporizador del cooldown
         attackTimer = attackCooldown;
 
