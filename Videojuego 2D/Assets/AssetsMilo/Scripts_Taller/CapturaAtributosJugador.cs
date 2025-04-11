@@ -23,7 +23,7 @@ public class CapturaAtributosJugador : MonoBehaviour
         {
             Debug.Log("Nombre del jugador: " + nombreJugador);
             // Obtener los datos de la clase GameManager
-            int tiempo = GameManager_Taller.Instance.GetTiempo();  // Método que retorna el tiempo jugado
+            float tiempo = GameManager_Taller.Instance.GetTiempo();  // Método que retorna el tiempo jugado
             int score = GameManager_Taller.Instance.GetScore();  // Método que retorna el puntaje
             int cantElementos = GameManager_Taller.Instance.GetCantElementos();  // Método que retorna la cantidad de elementos recolectados
 

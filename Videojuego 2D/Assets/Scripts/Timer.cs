@@ -55,7 +55,7 @@ public class Timer : MonoBehaviour
                 respuestaAudio.Play();
             }
             // Guardar el tiempo en el GameManager_Taller
-            GameManager_Taller.Instance.SetTiempo((int)stopTime);
+            GameManager_Taller.Instance.AgregarTiempo(stopTime);
 
         }
     }

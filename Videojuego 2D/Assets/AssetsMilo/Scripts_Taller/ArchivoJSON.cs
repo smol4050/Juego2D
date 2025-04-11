@@ -6,9 +6,6 @@ using UnityEngine;
 
 public class ArchivoJSON : MonoBehaviour
 {
-    [SerializeField] TextMeshProUGUI TextPuntajesHistorial;
-
-    private List<ClaseScore> puntajes;  // Lista para almacenar los puntajes
     
     // Ruta del archivo JSON en StreamingAssets
     private string jsonFilePath = Path.Combine(Application.streamingAssetsPath, "scores.json");
@@ -28,13 +25,6 @@ public class ArchivoJSON : MonoBehaviour
         }
     }
 
-    private void Start()
-    {
-        puntajes = new List<ClaseScore>();
-        puntajes = CargarPuntajes();
-
-        MostrarPuntajes(); 
-    }
 
     // Método para guardar un puntaje (objeto ClaseScore) en el archivo JSON
     public void GuardarPuntaje(ClaseScore nuevoScore)
@@ -77,20 +67,4 @@ public class ArchivoJSON : MonoBehaviour
         }
     }
 
-    private void MostrarPuntajes()
-    {
-        string puntajesText = "";  // Variable para almacenar el texto de los puntajes
-
-        // Recorrer la lista de puntajes y agregar cada puntaje al texto
-        foreach (ClaseScore res in puntajes)
-        {
-            puntajesText += "Jugador:" + res.nombreJugador+"\n";
-            puntajesText += "Tiempo:" + res.tiempo+ "\n";
-            puntajesText += "Puntaje:" +res.score + "\n";
-            puntajesText += "Elementos:" + res.cantElementos+"\n\n"; 
-        }
-
-        // Asignar el texto al componente TextMeshProUGUI
-        TextPuntajesHistorial.text = puntajesText;
-    }
 }

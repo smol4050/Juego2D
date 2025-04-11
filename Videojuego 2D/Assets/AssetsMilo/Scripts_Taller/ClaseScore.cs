@@ -6,11 +6,11 @@ using UnityEngine;
 public class ClaseScore
 {
     public string nombreJugador;
-    public int tiempo;
+    public float tiempo;
     public int score;
     public int cantElementos;
 
-    public ClaseScore(string nombreJugador, int tiempo, int score, int cantElementos)
+    public ClaseScore(string nombreJugador, float tiempo, int score, int cantElementos)
     {
         this.nombreJugador = nombreJugador;
         this.tiempo = tiempo;

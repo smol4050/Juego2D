@@ -2,13 +2,43 @@
     "scoreDataList": [
         {
             "nombreJugador": "lola calamidades",
-            "tiempo": 34,
+            "tiempo": 34.0,
             "score": 0,
             "cantElementos": 0
         },
         {
             "nombreJugador": "rodolfo",
-            "tiempo": 26,
+            "tiempo": 26.0,
+            "score": 0,
+            "cantElementos": 0
+        },
+        {
+            "nombreJugador": "manolo",
+            "tiempo": 42.0,
+            "score": 0,
+            "cantElementos": 0
+        },
+        {
+            "nombreJugador": "gatubelity",
+            "tiempo": 35.0,
+            "score": 0,
+            "cantElementos": 0
+        },
+        {
+            "nombreJugador": "patata",
+            "tiempo": 51.0,
+            "score": 0,
+            "cantElementos": 0
+        },
+        {
+            "nombreJugador": "guajira",
+            "tiempo": 61.0,
+            "score": 0,
+            "cantElementos": 0
+        },
+        {
+            "nombreJugador": "huna",
+            "tiempo": 9.62868881225586,
             "score": 0,
             "cantElementos": 0
         }
