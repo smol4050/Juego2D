@@ -17,9 +17,10 @@ public class LecturaFrasesCarga : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+
         listaFrases = new List<string>();
         random = new System.Random();
-
+        listaFrases.Clear();
         LecturaFrases();
         mostrarFrase();
     }
@@ -27,36 +28,66 @@ public class LecturaFrasesCarga : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+
     }
 
     public void LecturaFrases()
     {
-
         string lineaLeida = "";
         try
         {
-            StreamReader sr1 = new StreamReader("Assets\\AssetsMilo\\Files\\Frases_PantallaCarga_Taller.txt");
+            // Usando una ruta más segura con StreamingAssets
+            string filePath = Path.Combine(Application.streamingAssetsPath, "Frases_PantallaCarga_Taller.txt");
+            StreamReader sr1 = new StreamReader(filePath);
+
             while ((lineaLeida = sr1.ReadLine()) != null)
             {
-                
                 listaFrases.Add(lineaLeida);
             }
-            Debug.Log("Tamaño de Lista de Frases: " + listaFrases.Count());
+
+            if (listaFrases.Count == 0)
+            {
+                Debug.LogWarning("El archivo de frases está vacío.");
+            }
+            else
+            {
+                Debug.Log("Tamaño de Lista de Frases: " + listaFrases.Count);
+            }
+
         }
         catch (Exception e)
         {
-            Debug.Log("ERROR " + e.ToString());
+            Debug.LogError("Error al leer el archivo: " + e.ToString());
         }
-        // Debug.Log("Frases cargadas: " + listaFrases.Count);
+        //string lineaLeida = "";
+        //try
+        //{
+        //    StreamReader sr1 = new StreamReader("Assets\\AssetsMilo\\Files\\Frases_PantallaCarga_Taller.txt");
+        //    while ((lineaLeida = sr1.ReadLine()) != null)
+        //    {
+
+        //        listaFrases.Add(lineaLeida);
+        //    }
+        //    Debug.Log("Tamaño de Lista de Frases: " + listaFrases.Count());
+        //}
+        //catch (Exception e)
+        //{
+        //    Debug.Log("ERROR " + e.ToString());
+        //}
+        //// Debug.Log("Frases cargadas: " + listaFrases.Count);
     }
 
     public void mostrarFrase()
     {
-        int res;
-
-        res = random.Next(0, listaFrases.Count);
-
-        txtFrase.text = listaFrases[res];
+        if (listaFrases.Count > 0)
+        {
+            Debug.Log("MostrandoFrase");
+            int res = random.Next(0, listaFrases.Count);
+            txtFrase.text = listaFrases[res];
+        }
+        else
+        {
+            Debug.LogWarning("La lista de frases está vacía.");
+        }
     }
 }
