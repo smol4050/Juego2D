@@ -201,8 +201,8 @@ CapsuleCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: -0.0070648193, y: 0.36}
-  m_Size: {x: 1.55, y: 1.8180237}
+  m_Offset: {x: -0.0070648193, y: 0.102659345}
+  m_Size: {x: 1.55, y: 1.6438911}
   m_Direction: 0
 --- !u!61 &8728988870686352402
 BoxCollider2D:
@@ -273,3 +273,5 @@ MonoBehaviour:
     m_Bits: 64
   attackDamage: 20
   attackCooldown: 1
+  PlayermaxHealth: 100
+  PlayercurrentHealth: 0
