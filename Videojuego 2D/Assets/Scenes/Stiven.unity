@@ -8974,10 +8974,11 @@ MonoBehaviour:
   detectionRange: 10
   maxHealth: 1000
   healthBarUI: {fileID: 1497862688}
-  dashSpeed: 20
+  dashSpeed: 6
   dashDuration: 0.5
-  dashCooldown: 1
+  dashCooldown: 4
   attackCooldown: 2
+  spellCooldown: 4
 --- !u!70 &1667044746
 CapsuleCollider2D:
   m_ObjectHideFlags: 0
@@ -10254,63 +10255,6 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 2968895028156859579, guid: d6e0360343541904e9f986f00cc756db, type: 3}
   m_PrefabInstance: {fileID: 2063565188}
   m_PrefabAsset: {fileID: 0}
---- !u!1001 &4929311232790186164
-PrefabInstance:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    serializedVersion: 3
-    m_TransformParent: {fileID: 0}
-    m_Modifications:
-    - target: {fileID: 5166234159848971826, guid: 6fd6b56c8b4e9ca43ba6ea034e0a43a8, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: 27.260876
-      objectReference: {fileID: 0}
-    - target: {fileID: 5166234159848971826, guid: 6fd6b56c8b4e9ca43ba6ea034e0a43a8, type: 3}
-      propertyPath: m_LocalPosition.y
-      value: -2.5915952
-      objectReference: {fileID: 0}
-    - target: {fileID: 5166234159848971826, guid: 6fd6b56c8b4e9ca43ba6ea034e0a43a8, type: 3}
-      propertyPath: m_LocalPosition.z
-      value: -8.404835
-      objectReference: {fileID: 0}
-    - target: {fileID: 5166234159848971826, guid: 6fd6b56c8b4e9ca43ba6ea034e0a43a8, type: 3}
-      propertyPath: m_LocalRotation.w
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 5166234159848971826, guid: 6fd6b56c8b4e9ca43ba6ea034e0a43a8, type: 3}
-      propertyPath: m_LocalRotation.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 5166234159848971826, guid: 6fd6b56c8b4e9ca43ba6ea034e0a43a8, type: 3}
-      propertyPath: m_LocalRotation.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 5166234159848971826, guid: 6fd6b56c8b4e9ca43ba6ea034e0a43a8, type: 3}
-      propertyPath: m_LocalRotation.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 5166234159848971826, guid: 6fd6b56c8b4e9ca43ba6ea034e0a43a8, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 5166234159848971826, guid: 6fd6b56c8b4e9ca43ba6ea034e0a43a8, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 5166234159848971826, guid: 6fd6b56c8b4e9ca43ba6ea034e0a43a8, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8927267111981470472, guid: 6fd6b56c8b4e9ca43ba6ea034e0a43a8, type: 3}
-      propertyPath: m_Name
-      value: Spell
-      objectReference: {fileID: 0}
-    m_RemovedComponents: []
-    m_RemovedGameObjects: []
-    m_AddedGameObjects: []
-    m_AddedComponents: []
-  m_SourcePrefab: {fileID: 100100000, guid: 6fd6b56c8b4e9ca43ba6ea034e0a43a8, type: 3}
 --- !u!1001 &7512837515702923438
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -10388,4 +10332,3 @@ SceneRoots:
   - {fileID: 877129654}
   - {fileID: 108634865}
   - {fileID: 7512837515702923438}
-  - {fileID: 4929311232790186164}

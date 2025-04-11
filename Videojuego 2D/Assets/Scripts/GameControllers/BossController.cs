@@ -7,16 +7,18 @@ public class BossController : MonoBehaviour
     private Rigidbody2D rb;
     public Transform player;
     public GameObject spellPrefab;
-    public float moveSpeed = 3f;
+    public float moveSpeed = 1f;
     public float attackRange = 2f;
     public float detectionRange = 10f;
     public int maxHealth = 1000;
     public BossHealthBarUI healthBarUI;
-    public float dashSpeed = 6f;
-    public float dashDuration = 1f;
-    public float dashCooldown = 2f;
+    public float dashSpeed = 3f;
+    public float dashDuration = 0.5f;
+    public float dashCooldown = 5f;
     public float attackCooldown = 2f;
 
+    public float spellCooldown = 4f;
+    private bool canCastSpell = true;
     private int currentHealth;
     private bool isDead = false;
     private bool isInvulnerable = false;
@@ -57,9 +59,9 @@ public class BossController : MonoBehaviour
                 {
                     currentState = BossState.Attacking;
                 }
-                else if (currentHealth <= maxHealth * 0.3f)
+                else if (canCastSpell)
                 {
-                    currentState = BossState.Retreating;
+                    currentState = BossState.Casting;
                 }
                 else if (canDash)
                 {
@@ -85,7 +87,7 @@ public class BossController : MonoBehaviour
                 break;
 
             case BossState.Casting:
-                
+                StartCoroutine(CastSpell());
                 currentState = BossState.Chasing;
                 break;
 
@@ -98,6 +100,8 @@ public class BossController : MonoBehaviour
                 break;
         }
     }
+
+
 
 
     private enum BossState
@@ -205,12 +209,35 @@ public class BossController : MonoBehaviour
         rb.velocity = new Vector2(direction.x * moveSpeed, rb.velocity.y);
     }
 
-    private void CastSpell()
+    private IEnumerator CastSpell()
     {
+        if (!canCastSpell) yield break;
+
+        canCastSpell = false;
         animator.SetTrigger("isCasting");
-        Vector2 targetPosition = player.position;
-        GameObject spell = Instantiate(spellPrefab, transform.position, Quaternion.identity);
+
+        
+        float castAnimationDuration = 1f;
+        yield return new WaitForSeconds(castAnimationDuration);
+
+        
+        Vector3 spellPosition = new Vector3(player.position.x, -1.25f, player.position.z);
+        GameObject spellInstance = Instantiate(spellPrefab, spellPosition, Quaternion.identity);
+
+        
+        Animator spellAnimator = spellInstance.GetComponent<Animator>();
+        if (spellAnimator != null)
+        {
+            yield return new WaitForSeconds(spellAnimator.GetCurrentAnimatorStateInfo(0).length);
+        }
+
+        Destroy(spellInstance);
+
+        yield return new WaitForSeconds(spellCooldown);
+        canCastSpell = true;
     }
+
+
 
 
     public void SetInvulnerable(bool state)
