@@ -6,12 +6,13 @@ public class BossController : MonoBehaviour
     private Animator animator;
     private Rigidbody2D rb;
     public Transform player;
+    public GameObject spellPrefab;
     public float moveSpeed = 3f;
     public float attackRange = 2f;
     public float detectionRange = 10f;
     public int maxHealth = 1000;
     public BossHealthBarUI healthBarUI;
-    public float dashSpeed = 9f;
+    public float dashSpeed = 6f;
     public float dashDuration = 1f;
     public float dashCooldown = 2f;
     public float attackCooldown = 2f;
@@ -151,8 +152,8 @@ public class BossController : MonoBehaviour
         SetInvulnerable(true);
         animator.SetTrigger("isDashing");
 
-        float dashTime = 0.1f;
-        float dashDistance = 9f;
+        float dashTime = 0.5f;
+        float dashDistance = 6f;
         float elapsedTime = 0f;
         Vector2 startPosition = rb.position;
         Vector2 targetPosition = startPosition + direction.normalized * dashDistance;
@@ -202,6 +203,13 @@ public class BossController : MonoBehaviour
         animator.SetBool("isWalking", true);
         Vector2 direction = (transform.position - player.position).normalized;
         rb.velocity = new Vector2(direction.x * moveSpeed, rb.velocity.y);
+    }
+
+    private void CastSpell()
+    {
+        animator.SetTrigger("isCasting");
+        Vector2 targetPosition = player.position;
+        GameObject spell = Instantiate(spellPrefab, transform.position, Quaternion.identity);
     }
 
 
