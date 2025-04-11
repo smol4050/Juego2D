@@ -9,7 +9,7 @@ public class controladorSonidoJugador : MonoBehaviour
     [SerializeField] private AudioClip JumpAudio;
     [SerializeField] private AudioClip RunAudio;
 
-    private AudioSource audioSource;
+    public AudioSource audioSource;
 
     private void Awake()
     {
@@ -32,10 +32,6 @@ public class controladorSonidoJugador : MonoBehaviour
     {
         audioSource.PlayOneShot(RunAudio, volume);
     }
-
-   
-
-
 }
 
 

@@ -20,6 +20,8 @@ public class PlayerController : MonoBehaviour, IDamage
     public int PlayermaxHealth = 100;
     public int PlayercurrentHealth;
 
+    [SerializeField] controladorSonidoJugador controladorSonidoJugador;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -46,6 +48,7 @@ public class PlayerController : MonoBehaviour, IDamage
         if(horizontalInput != 0)
         {  
             rigidBody.velocity = new Vector2(movimiento.x, rigidBody.velocity.y);
+            controladorSonidoJugador.soundRun(0.5f);
         }
         else{
             if(enElPiso)
@@ -54,6 +57,7 @@ public class PlayerController : MonoBehaviour, IDamage
             }
         }
         
+
     }
 
     private void gestionarOrientacion(){
@@ -69,14 +73,18 @@ public class PlayerController : MonoBehaviour, IDamage
             rigidBody.velocity = new Vector2(rigidBody.velocity.x, jumpForce);
             enElPiso = false;
             animator.SetBool("isJumping", !enElPiso);
+            controladorSonidoJugador.soundJump(0.5f);
         }
+        
     }
  
     private void attack()
 {
-    // Si se presiona "f" y se cumplió el cooldown:
-    if (Input.GetKeyDown("f") && attackTimer <= 0f)
+        
+        // Si se presiona "f" y se cumplió el cooldown:
+        if (Input.GetKeyDown("f") && attackTimer <= 0f)
     {
+        controladorSonidoJugador.selectAudioAtack(0.5f);
         // Resetea el temporizador del cooldown
         attackTimer = attackCooldown;
 

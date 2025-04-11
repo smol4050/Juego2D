@@ -30,6 +30,8 @@ public class BossController : MonoBehaviour
     private bool canDash = true;
     private GameObject attackHitbox;
 
+    [SerializeField] SonidoBoss sonidoBoss;
+
     private void Start()
     {
         animator = GetComponent<Animator>();
@@ -40,6 +42,8 @@ public class BossController : MonoBehaviour
         currentHealth = maxHealth;
         healthBarUI.SetMaxHealth(maxHealth);
         healthBarUI.Hide();
+
+        sonidoBoss.IniciarSonidosRandom(2f);
     }
 
     private void Update()
@@ -143,6 +147,7 @@ public class BossController : MonoBehaviour
     {
         if (canAttack)
         {
+            sonidoBoss.selectAudioAtack();
             animator.SetBool("isWalking", false);
             animator.SetTrigger("isAttacking");
             canAttack = false;
