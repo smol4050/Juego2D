@@ -1,6 +1,16 @@
 {
     "scoreDataList": [
-        {},
-        {}
+        {
+            "nombreJugador": "lola calamidades",
+            "tiempo": 34,
+            "score": 0,
+            "cantElementos": 0
+        },
+        {
+            "nombreJugador": "rodolfo",
+            "tiempo": 26,
+            "score": 0,
+            "cantElementos": 0
+        }
     ]
 }

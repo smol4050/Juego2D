@@ -8874,6 +8874,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0699d43db053d2c41afd0d7c8073c2fa, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  TextPuntajesHistorial: {fileID: 2077856483}
 --- !u!4 &2045668400
 Transform:
   m_ObjectHideFlags: 0

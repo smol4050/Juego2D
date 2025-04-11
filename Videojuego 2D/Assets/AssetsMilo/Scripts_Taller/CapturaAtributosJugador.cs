@@ -29,6 +29,7 @@ public class CapturaAtributosJugador : MonoBehaviour
 
             // Crear el objeto ClaseScore con los datos
             ClaseScore ObjClaseScore = new ClaseScore(nombreJugador, tiempo, score, cantElementos);
+            Debug.Log("Nuevo puntaje: " + ObjClaseScore.nombreJugador + ", Tiempo: " + ObjClaseScore.tiempo + ", Score: " + ObjClaseScore.score + ", Elementos: " + ObjClaseScore.cantElementos);
 
             // Llamar al método de ArchivoJSON para guardar el puntaje
             ArchivoJSON.Instance.GuardarPuntaje(ObjClaseScore);

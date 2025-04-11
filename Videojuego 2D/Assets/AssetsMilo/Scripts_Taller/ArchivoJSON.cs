@@ -1,10 +1,15 @@
 using System.Collections;
 using System.Collections.Generic;
 using System.IO;
+using TMPro;
 using UnityEngine;
 
 public class ArchivoJSON : MonoBehaviour
 {
+    [SerializeField] TextMeshProUGUI TextPuntajesHistorial;
+
+    private List<ClaseScore> puntajes;  // Lista para almacenar los puntajes
+    
     // Ruta del archivo JSON en StreamingAssets
     private string jsonFilePath = Path.Combine(Application.streamingAssetsPath, "scores.json");
     public static ArchivoJSON Instance;
@@ -23,10 +28,24 @@ public class ArchivoJSON : MonoBehaviour
         }
     }
 
+    private void Start()
+    {
+        puntajes = new List<ClaseScore>();
+        puntajes = CargarPuntajes();
+
+        MostrarPuntajes(); 
+    }
+
     // Método para guardar un puntaje (objeto ClaseScore) en el archivo JSON
     public void GuardarPuntaje(ClaseScore nuevoScore)
     {
         Debug.Log("Guardando puntaje...");
+
+        Debug.Log("Nombre Jugador: " + nuevoScore.nombreJugador);
+        Debug.Log("Tiempo: " + nuevoScore.tiempo);
+        Debug.Log("Puntaje: " + nuevoScore.score);
+        Debug.Log("Cantidad Elementos: " + nuevoScore.cantElementos);
+
         List<ClaseScore> scores = CargarPuntajes();  // Cargar puntajes existentes, si los hay
         scores.Add(nuevoScore);  // Añadir el nuevo puntaje a la lista
 
@@ -56,5 +75,22 @@ public class ArchivoJSON : MonoBehaviour
             Debug.LogWarning("No se encontró el archivo de puntajes.");
             return new List<ClaseScore>();  // Retornar lista vacía si el archivo no existe
         }
+    }
+
+    private void MostrarPuntajes()
+    {
+        string puntajesText = "";  // Variable para almacenar el texto de los puntajes
+
+        // Recorrer la lista de puntajes y agregar cada puntaje al texto
+        foreach (ClaseScore res in puntajes)
+        {
+            puntajesText += "Jugador:" + res.nombreJugador+"\n";
+            puntajesText += "Tiempo:" + res.tiempo+ "\n";
+            puntajesText += "Puntaje:" +res.score + "\n";
+            puntajesText += "Elementos:" + res.cantElementos+"\n\n"; 
+        }
+
+        // Asignar el texto al componente TextMeshProUGUI
+        TextPuntajesHistorial.text = puntajesText;
     }
 }
