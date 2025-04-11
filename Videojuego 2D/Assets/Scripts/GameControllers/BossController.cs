@@ -209,21 +209,18 @@ public class BossController : MonoBehaviour
     private void Die()
     {
         if (isDead) return;
-
-        isDead = true;
-        sonidoBoss.DetenerSonidosRandom();
-        animator.SetBool("isDead", true);
         rb.velocity = Vector2.zero;
+        sonidoBoss.DetenerSonidosRandom();
+        isDead = true;
+        animator.SetTrigger("Die");
 
-        
         StartCoroutine(HandleDeath());
-       
     }
 
     private IEnumerator HandleDeath()
     {
 
-        yield return new WaitForSeconds(4f);
+        yield return new WaitForSeconds(3f);
 
 
         Collider2D[] colliders = GetComponents<Collider2D>();
