@@ -7,6 +7,7 @@ public class SonidoBoss : MonoBehaviour
     [SerializeField] private AudioClip[] Voice;
     [SerializeField] private AudioClip[] AtackAudios;
     private AudioSource audioSource;
+    private Coroutine vozCoroutine;
 
     private void Awake()
     {
@@ -15,8 +16,17 @@ public class SonidoBoss : MonoBehaviour
 
     public void IniciarSonidosRandom(float delay)
     {
-        StartCoroutine(reproducirSonidosAleatorios(delay));
+        vozCoroutine = StartCoroutine(reproducirSonidosAleatorios(delay));
 
+    }
+
+    public void DetenerSonidosRandom() 
+    {
+        if (vozCoroutine != null)
+        {
+            StopCoroutine(vozCoroutine);
+            vozCoroutine = null;
+        }
     }
 
     public void selectAudio()

@@ -94,7 +94,7 @@ public class PlayerController : MonoBehaviour, IDamage
             rigidBody.velocity = new Vector2(rigidBody.velocity.x, jumpForce);
             enElPiso = false;
             animator.SetBool("isJumping", !enElPiso);
-            controladorSonidoJugador.soundJump(0.5f);
+            controladorSonidoJugador.soundJump();
         }
         
     }
@@ -105,7 +105,7 @@ public class PlayerController : MonoBehaviour, IDamage
         // Si se presiona "f" y se cumplió el cooldown:
         if (Input.GetKeyDown("f") && attackTimer <= 0f)
     {
-        controladorSonidoJugador.selectAudioAtack(0.5f);
+        controladorSonidoJugador.selectAudioAtack();
         // Resetea el temporizador del cooldown
         attackTimer = attackCooldown;
 
@@ -168,6 +168,7 @@ public class PlayerController : MonoBehaviour, IDamage
     {
         PlayercurrentHealth -= damage;
         animator.SetTrigger("hit");
+        controladorSonidoJugador.selectAudioDamageReceived();
         Debug.Log("Player took damage: " + damage + ", current health: " + PlayercurrentHealth);
     }
 
@@ -175,6 +176,11 @@ public class PlayerController : MonoBehaviour, IDamage
         if (PlayercurrentHealth <= 0){
             Debug.Log("Player died!");
             animator.SetTrigger("die");
+            controladorSonidoJugador.audioSource.Stop();
+            controladorSonidoJugador.selectAudioDied();
+            
+
+
         }
     }
     public void DesacivarJugador()
