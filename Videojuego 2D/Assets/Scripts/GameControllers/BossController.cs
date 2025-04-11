@@ -16,7 +16,10 @@ public class BossController : MonoBehaviour
     public float dashDuration = 0.5f;
     public float dashCooldown = 5f;
     public float attackCooldown = 2f;
+    public float attackSpeed = 3f;
+    public float predictionTime = 1f;
 
+    private bool isRetreating = false;
     public float spellCooldown = 4f;
     private bool canCastSpell = true;
     private int currentHealth;
@@ -45,6 +48,19 @@ public class BossController : MonoBehaviour
 
         float distanceToPlayer = Vector2.Distance(transform.position, player.position);
 
+        
+        if (currentHealth < maxHealth * 0.5f)
+        {
+            isRetreating = true;
+        }
+
+        if (isRetreating)
+        {
+            RetreatFromPlayer();
+            return;
+        }
+
+        
         switch (currentState)
         {
             case BossState.Idle:
@@ -90,16 +106,9 @@ public class BossController : MonoBehaviour
                 StartCoroutine(CastSpell());
                 currentState = BossState.Chasing;
                 break;
-
-            case BossState.Retreating:
-                RetreatFromPlayer();
-                if (distanceToPlayer >= detectionRange)
-                {
-                    currentState = BossState.Idle;
-                }
-                break;
         }
     }
+
 
 
 
@@ -194,20 +203,68 @@ public class BossController : MonoBehaviour
 
     private void Die()
     {
+        if (isDead) return;
+
         isDead = true;
         animator.SetBool("isDead", true);
         rb.velocity = Vector2.zero;
-        GetComponent<Collider2D>().enabled = false;
-        this.enabled = false;
-        healthBarUI.Hide();
+
+        
+        StartCoroutine(HandleDeath());
+    }
+
+    private IEnumerator HandleDeath()
+    {
+
+        yield return new WaitForSeconds(4f);
+
+
+        Collider2D[] colliders = GetComponents<Collider2D>();
+        foreach (var collider in colliders)
+        {
+            collider.enabled = false;
+        }
+
+        
+        yield return new WaitForSeconds(2f);
+        gameObject.SetActive(false);
     }
 
     private void RetreatFromPlayer()
     {
         animator.SetBool("isWalking", true);
-        Vector2 direction = (transform.position - player.position).normalized;
-        rb.velocity = new Vector2(direction.x * moveSpeed, rb.velocity.y);
+
+        
+        Vector2 retreatDirection = (transform.position - player.position).normalized;
+        rb.velocity = new Vector2(retreatDirection.x * moveSpeed, rb.velocity.y);
+
+        
+        Vector2 playerFuturePosition = (Vector2)player.position + player.GetComponent<Rigidbody2D>().velocity * predictionTime;
+
+        
+        if (canAttack)
+        {
+            AttackTowards(playerFuturePosition);
+        }
     }
+
+    private void AttackTowards(Vector2 targetPosition)
+    {
+        if (canAttack)
+        {
+            animator.SetBool("isWalking", false);
+            animator.SetTrigger("isAttacking");
+            canAttack = false;
+
+            
+            Vector2 attackDirection = (targetPosition - (Vector2)transform.position).normalized;
+            GameObject attackInstance = Instantiate(spellPrefab, transform.position, Quaternion.identity);
+            attackInstance.GetComponent<Rigidbody2D>().velocity = attackDirection * attackSpeed;
+
+            Invoke(nameof(ResetAttack), attackCooldown);
+        }
+    }
+
 
     private IEnumerator CastSpell()
     {
@@ -217,7 +274,7 @@ public class BossController : MonoBehaviour
         animator.SetTrigger("isCasting");
 
         
-        float castAnimationDuration = 1f;
+        float castAnimationDuration = 1.5f;
         yield return new WaitForSeconds(castAnimationDuration);
 
         
