@@ -12,6 +12,9 @@ EditorBuildSettings:
     path: Assets/Scenes/Menu_IU.unity
     guid: f9fee305f6d96c143a13d5f8e1f5e86c
   - enabled: 1
+    path: Assets/Scenes/Creditos.unity
+    guid: 673d34bd4a6953f43ac4f8734f252459
+  - enabled: 1
     path: Assets/Scenes/Milo.unity
     guid: 4a66098893aeb4e47a32668b63310205
   m_configObjects: {}
