@@ -16,6 +16,7 @@ public class controladorSonidoJugador : MonoBehaviour
     private void Awake()
     {
         audioSource = GetComponent<AudioSource>();
+      
     }
 
     public void selectAudioAtack()
@@ -44,6 +45,15 @@ public class controladorSonidoJugador : MonoBehaviour
     public void soundRun()
     {
         pasos.Play();
+    }
+
+    public void DetenerSonidos()
+    {
+        if (pasos.isPlaying)
+        {
+            pasos.Stop(); 
+        }
+        audioSource.Stop();
     }
 
 }

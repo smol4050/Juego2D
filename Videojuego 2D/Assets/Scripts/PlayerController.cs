@@ -176,7 +176,11 @@ public class PlayerController : MonoBehaviour, IDamage
         if (PlayercurrentHealth <= 0){
             Debug.Log("Player died!");
             animator.SetTrigger("die");
+            controladorSonidoJugador.audioSource.Stop();
             controladorSonidoJugador.selectAudioDied();
+            
+
+
         }
     }
     public void DesacivarJugador()
