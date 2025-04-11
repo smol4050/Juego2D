@@ -30,6 +30,8 @@ public class BossController : MonoBehaviour
     private bool canDash = true;
     private GameObject attackHitbox;
 
+    [SerializeField] SonidoBoss sonidoBoss;
+
     private void Start()
     {
         animator = GetComponent<Animator>();
@@ -40,6 +42,8 @@ public class BossController : MonoBehaviour
         currentHealth = maxHealth;
         healthBarUI.SetMaxHealth(maxHealth);
         healthBarUI.Hide();
+
+        sonidoBoss.IniciarSonidosRandom(2f);
     }
 
     private void Update()
@@ -143,6 +147,7 @@ public class BossController : MonoBehaviour
     {
         if (canAttack)
         {
+            sonidoBoss.selectAudioAtack();
             animator.SetBool("isWalking", false);
             animator.SetTrigger("isAttacking");
             canAttack = false;
@@ -204,19 +209,18 @@ public class BossController : MonoBehaviour
     private void Die()
     {
         if (isDead) return;
-
-        isDead = true;
-        animator.SetBool("isDead", true);
         rb.velocity = Vector2.zero;
+        sonidoBoss.DetenerSonidosRandom();
+        isDead = true;
+        animator.SetTrigger("Die");
 
-        
         StartCoroutine(HandleDeath());
     }
 
     private IEnumerator HandleDeath()
     {
 
-        yield return new WaitForSeconds(4f);
+        yield return new WaitForSeconds(3f);
 
 
         Collider2D[] colliders = GetComponents<Collider2D>();
