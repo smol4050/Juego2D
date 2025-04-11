@@ -7,6 +7,7 @@ public class controladorSonidoJugador : MonoBehaviour
 
     [SerializeField] private AudioClip[] AtackAudios;
     [SerializeField] private AudioClip[] DamageReceived;
+    [SerializeField] private AudioClip Died;
     [SerializeField] private AudioClip JumpAudio;
     [SerializeField] private AudioClip RunAudio;
 
@@ -24,6 +25,11 @@ public class controladorSonidoJugador : MonoBehaviour
 
     }
 
+    public void selectAudioDied()
+    {
+        audioSource.PlayOneShot(Died);
+    }
+
     public void selectAudioDamageReceived()
     {
         int sonidoElegido = Random.Range(0, DamageReceived.Length);
@@ -39,6 +45,7 @@ public class controladorSonidoJugador : MonoBehaviour
     {
         pasos.Play();
     }
+
 }
 
 

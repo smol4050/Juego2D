@@ -8787,6 +8787,10 @@ MonoBehaviour:
   - {fileID: 8300000, guid: d6ce123e64f2b7146b83324f0f8310de, type: 3}
   - {fileID: 8300000, guid: fcdfa7271e3d6734b86f34501752f7dd, type: 3}
   - {fileID: 8300000, guid: 8b8bd4b16a91098469f357763226b7d0, type: 3}
+  DamageReceived:
+  - {fileID: 8300000, guid: c6236aa5eea013d42aa3c8861d7ee908, type: 3}
+  - {fileID: 8300000, guid: 22a59e04b4823854aac2d0705f2dedd6, type: 3}
+  Died: {fileID: 8300000, guid: 6983cedb970337242b578c6ded0e57bf, type: 3}
   JumpAudio: {fileID: 8300000, guid: fd681270bbc02d348952cfe631ccece5, type: 3}
   RunAudio: {fileID: 8300000, guid: fe3ed49b248ea3e48bf0cb9b70ab0fcf, type: 3}
   audioSource: {fileID: 0}
