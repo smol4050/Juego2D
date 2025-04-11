@@ -1307,7 +1307,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 8.298828, y: -30.000061}
+  m_AnchoredPosition: {x: 8.298828, y: -30.000122}
   m_SizeDelta: {x: -178.635, y: -691.383}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &410266052
@@ -4643,9 +4643,9 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1823084034}
-        m_TargetAssemblyTypeName: TransitionController, Assembly-CSharp
-        m_MethodName: CambiarEscena
+      - m_Target: {fileID: 1981399807}
+        m_TargetAssemblyTypeName: GameController_Menu, Assembly-CSharp
+        m_MethodName: IniciarJuego
         m_Mode: 5
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -5413,9 +5413,9 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1823084034}
-        m_TargetAssemblyTypeName: TransitionController, Assembly-CSharp
-        m_MethodName: CambiarEscena
+      - m_Target: {fileID: 1981399807}
+        m_TargetAssemblyTypeName: GameController_Menu, Assembly-CSharp
+        m_MethodName: MostrarCreditos
         m_Mode: 5
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -7342,7 +7342,7 @@ SceneRoots:
   - {fileID: 815954062}
   - {fileID: 902654487}
   - {fileID: 1140987420}
-  - {fileID: 1823084036}
   - {fileID: 444355419}
   - {fileID: 783673005}
   - {fileID: 1981399808}
+  - {fileID: 1823084036}
