@@ -7,10 +7,26 @@ public class ArchivoJSON : MonoBehaviour
 {
     // Ruta del archivo JSON en StreamingAssets
     private string jsonFilePath = Path.Combine(Application.streamingAssetsPath, "scores.json");
+    public static ArchivoJSON Instance;
+
+    private void Awake()
+    {
+        // Verificar si no hay una instancia
+        if (Instance == null)
+        {
+            Instance = this;  // Asignar esta instancia como la única
+            DontDestroyOnLoad(gameObject);  // No destruir el objeto al cambiar de escena
+        }
+        else
+        {
+            Destroy(gameObject);  // Si ya existe una instancia, destruir este objeto
+        }
+    }
 
     // Método para guardar un puntaje (objeto ClaseScore) en el archivo JSON
     public void GuardarPuntaje(ClaseScore nuevoScore)
     {
+        Debug.Log("Guardando puntaje...");
         List<ClaseScore> scores = CargarPuntajes();  // Cargar puntajes existentes, si los hay
         scores.Add(nuevoScore);  // Añadir el nuevo puntaje a la lista
 

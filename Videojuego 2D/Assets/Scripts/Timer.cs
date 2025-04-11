@@ -27,6 +27,7 @@ public class Timer : MonoBehaviour
     void Start()
     {
         TimerReset();
+        TimerStart();
     }
 
     public void TimerStart()
