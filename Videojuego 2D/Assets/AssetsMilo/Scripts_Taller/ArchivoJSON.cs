@@ -1,10 +1,12 @@
 using System.Collections;
 using System.Collections.Generic;
 using System.IO;
+using TMPro;
 using UnityEngine;
 
 public class ArchivoJSON : MonoBehaviour
 {
+    
     // Ruta del archivo JSON en StreamingAssets
     private string jsonFilePath = Path.Combine(Application.streamingAssetsPath, "scores.json");
     public static ArchivoJSON Instance;
@@ -23,10 +25,17 @@ public class ArchivoJSON : MonoBehaviour
         }
     }
 
+
     // Método para guardar un puntaje (objeto ClaseScore) en el archivo JSON
     public void GuardarPuntaje(ClaseScore nuevoScore)
     {
         Debug.Log("Guardando puntaje...");
+
+        Debug.Log("Nombre Jugador: " + nuevoScore.nombreJugador);
+        Debug.Log("Tiempo: " + nuevoScore.tiempo);
+        Debug.Log("Puntaje: " + nuevoScore.score);
+        Debug.Log("Cantidad Elementos: " + nuevoScore.cantElementos);
+
         List<ClaseScore> scores = CargarPuntajes();  // Cargar puntajes existentes, si los hay
         scores.Add(nuevoScore);  // Añadir el nuevo puntaje a la lista
 
@@ -57,4 +66,5 @@ public class ArchivoJSON : MonoBehaviour
             return new List<ClaseScore>();  // Retornar lista vacía si el archivo no existe
         }
     }
+
 }

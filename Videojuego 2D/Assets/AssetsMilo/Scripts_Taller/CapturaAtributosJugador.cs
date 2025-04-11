@@ -23,12 +23,13 @@ public class CapturaAtributosJugador : MonoBehaviour
         {
             Debug.Log("Nombre del jugador: " + nombreJugador);
             // Obtener los datos de la clase GameManager
-            int tiempo = GameManager_Taller.Instance.GetTiempo();  // Método que retorna el tiempo jugado
+            float tiempo = GameManager_Taller.Instance.GetTiempo();  // Método que retorna el tiempo jugado
             int score = GameManager_Taller.Instance.GetScore();  // Método que retorna el puntaje
             int cantElementos = GameManager_Taller.Instance.GetCantElementos();  // Método que retorna la cantidad de elementos recolectados
 
             // Crear el objeto ClaseScore con los datos
             ClaseScore ObjClaseScore = new ClaseScore(nombreJugador, tiempo, score, cantElementos);
+            Debug.Log("Nuevo puntaje: " + ObjClaseScore.nombreJugador + ", Tiempo: " + ObjClaseScore.tiempo + ", Score: " + ObjClaseScore.score + ", Elementos: " + ObjClaseScore.cantElementos);
 
             // Llamar al método de ArchivoJSON para guardar el puntaje
             ArchivoJSON.Instance.GuardarPuntaje(ObjClaseScore);
