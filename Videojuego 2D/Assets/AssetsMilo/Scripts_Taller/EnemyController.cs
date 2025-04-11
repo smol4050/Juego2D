@@ -80,5 +80,6 @@ public class EnemyController : Enemy
     {
         Gizmos.color = Color.red;
         Gizmos.DrawWireSphere(transform.position, attackRange);
+        Gizmos.DrawWireSphere(transform.position, minDistance);
     }
 }
