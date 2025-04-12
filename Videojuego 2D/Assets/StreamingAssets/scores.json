@@ -65,6 +65,12 @@
             "tiempo": 0.0,
             "score": 53,
             "cantElementos": 13
+        },
+        {
+            "nombreJugador": "Zepol",
+            "tiempo": 0.0,
+            "score": 69,
+            "cantElementos": 18
         }
     ]
 }
