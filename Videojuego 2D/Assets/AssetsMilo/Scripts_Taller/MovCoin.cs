@@ -4,15 +4,23 @@ using UnityEngine;
 
 public class MovCoin : MonoBehaviour
 {
-    // Start is called before the first frame update
+
+    public float velocidad = 2f;
+    public float altura = 0.3f;
+    private Vector3 puntoA;
+    private Vector3 puntoB;
+    private float t = 0;
+
     void Start()
     {
-        
+        puntoA = transform.position;
+        puntoB = new Vector3(transform.position.x, transform.position.y + altura, transform.position.z);
     }
 
-    // Update is called once per frame
     void Update()
     {
-        
+        t += Time.deltaTime * velocidad;
+        transform.position = Vector3.Lerp(puntoA, puntoB, Mathf.PingPong(t, 1));
     }
 }
+
