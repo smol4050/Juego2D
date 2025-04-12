@@ -38,10 +38,13 @@ public class SpawnEnemigo_Punto : MonoBehaviour
     {
         if (player == null) return;
         if (!Estatua.activeSelf) return;
+        tiempoSiguienteEnemigo += Time.deltaTime;
+
         float distanceToPlayer = Vector2.Distance(transform.position, player.position);
         if (distanceToPlayer < attackRange)
         {
-            tiempoSiguienteEnemigo += Time.deltaTime;
+            Debug.Log("El jugador está dentro del rango de ataque.");
+
             if (tiempoSiguienteEnemigo >= tiempoSpawn)
             {
 
@@ -59,6 +62,8 @@ public class SpawnEnemigo_Punto : MonoBehaviour
             Debug.LogError("No hay puntos de spawn asignados.");
             return;
         }
+
+        Debug.Log("Creando enemigo en el punto de spawn");
         Transform spawnPoint = puntosSpawn[Random.Range(0, puntosSpawn.Length)];
         //Vector2 posSpawn = new Vector2(Random.Range(minX, maxX), Random.Range(minY, maxY));
         GameObject enemigo = Instantiate(enemigoPrefab, spawnPoint.position, Quaternion.identity);
