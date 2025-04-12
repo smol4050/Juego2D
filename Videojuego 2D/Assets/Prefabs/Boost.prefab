@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 2112020053225605716}
   - component: {fileID: 101912476726632679}
   - component: {fileID: 7739929930540230480}
+  - component: {fileID: 511064739899332955}
   m_Layer: 0
   m_Name: Boost
   m_TagString: Untagged
@@ -145,5 +146,17 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   sonidoBoost: {fileID: 8300000, guid: 296b897c2ce18f14282e8adc6f209515, type: 3}
   sonidoLife: {fileID: 0}
-  lifeprefab: {fileID: 3211002385245376078, guid: 78a1b83f19ae2a849a00ab22bf1efeb3, type: 3}
-  boostprefab: {fileID: 768057691933741097}
+--- !u!114 &511064739899332955
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 768057691933741097}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6f0b2190cacb0d64583257dcc7afb334, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  duration: 5
+  speedMultiplier: 3

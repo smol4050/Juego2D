@@ -4,7 +4,9 @@ using UnityEngine;
 public class PlayerController : MonoBehaviour, IDamage
 {
     float horizontalInput;
-    public float speed = 1;
+    private int baseSpeed = 4;
+    [SerializeField ]private int currentSpeed;
+    private Coroutine speedBoostCoroutine;
     private Rigidbody2D rigidBody;
     private Animator animator;
     public LayerMask groundLayer;
@@ -17,7 +19,7 @@ public class PlayerController : MonoBehaviour, IDamage
     public int attackDamage = 20;
     public float attackCooldown = 1f;
     private float attackTimer = 0f;
-    private int PlayermaxHealth = 100;
+    private int PlayerMaxHealth = 100;
     [SerializeField]private  int PlayercurrentHealth;
     public bool Hactivo;
     private bool enElPisoAnterior;
@@ -31,10 +33,11 @@ public class PlayerController : MonoBehaviour, IDamage
     // Start is called before the first frame update
     void Start()
     {
+        currentSpeed = baseSpeed;
+        PlayercurrentHealth = PlayerMaxHealth;
         rigidBody = GetComponent<Rigidbody2D>();
         animator = GetComponent<Animator>();
-        PlayercurrentHealth = PlayermaxHealth;
-        healthBar.setMaxHealth(PlayermaxHealth);
+        healthBar.setMaxHealth(PlayerMaxHealth);
     }
 
     // Update is called once per frame
@@ -53,7 +56,7 @@ public class PlayerController : MonoBehaviour, IDamage
         animator.SetFloat("xVelocity", Mathf.Abs(rigidBody.velocity.x));
         animator.SetFloat("yVelocity", rigidBody.velocity.y);
         horizontalInput = Input.GetAxis("Horizontal");
-        Vector2 movimiento = new Vector2(speed*horizontalInput, 0f);
+        Vector2 movimiento = new Vector2(currentSpeed*horizontalInput, 0f);
         if(horizontalInput != 0)
         {  
             Hactivo = true;
@@ -160,6 +163,11 @@ public class PlayerController : MonoBehaviour, IDamage
     {
         enElPiso = true;
         animator.SetBool("isJumping", !enElPiso);
+        PowerUp powerUp = collision.GetComponent<PowerUp>();
+        if (powerUp != null)
+        {
+            powerUp.Apply(gameObject);
+        }
     }
 
     void OnDrawGizmosSelected()
@@ -192,4 +200,28 @@ public class PlayerController : MonoBehaviour, IDamage
     private void desactivarjugador(){
         gameObject.SetActive(false);
     }
+
+    public void ApplySpeedBoost(int multiplier, float duration)
+    {
+        if (speedBoostCoroutine != null)
+            StopCoroutine(speedBoostCoroutine);
+
+        speedBoostCoroutine = StartCoroutine(SpeedBoostRoutine(multiplier, duration));
+    }
+
+    private IEnumerator SpeedBoostRoutine(int multiplier, float duration)
+    {
+        currentSpeed = baseSpeed * multiplier;
+        yield return new WaitForSeconds(duration);
+        currentSpeed = baseSpeed;
+    }
+
+
+    public void Heal(int amount)
+    {
+        PlayercurrentHealth = Mathf.Min(PlayercurrentHealth + amount, PlayerMaxHealth);
+        Debug.Log("Curado. Vida actual: " + PlayercurrentHealth);
+    }
+
+    
 }
