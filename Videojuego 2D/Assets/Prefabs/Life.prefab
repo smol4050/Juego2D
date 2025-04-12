@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 338200074259886090}
   - component: {fileID: 4071611878534363093}
   - component: {fileID: 8260942086470091030}
+  - component: {fileID: 7539660779522534536}
   m_Layer: 0
   m_Name: Life
   m_TagString: Untagged
@@ -145,3 +146,17 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   duration: 5
   healAmount: 20
+--- !u!114 &7539660779522534536
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3211002385245376078}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: be82f6963bb013e499a6870794d52b30, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  sonidoBoost: {fileID: 0}
+  sonidoLife: {fileID: 0}

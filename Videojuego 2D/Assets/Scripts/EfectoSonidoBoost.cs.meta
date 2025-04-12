@@ -3,7 +3,9 @@ guid: 8ef595f4c90dc2041bd4bca9d9c28db6
 MonoImporter:
   externalObjects: {}
   serializedVersion: 2
-  defaultReferences: []
+  defaultReferences:
+  - sonidoBoost: {fileID: 8300000, guid: 296b897c2ce18f14282e8adc6f209515, type: 3}
+  - sonidoLife: {fileID: 8300000, guid: 5848eeb1837c16b469a0b727ca83be8f, type: 3}
   executionOrder: 0
   icon: {instanceID: 0}
   userData: 
