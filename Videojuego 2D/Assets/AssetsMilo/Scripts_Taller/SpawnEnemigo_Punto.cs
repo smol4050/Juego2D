@@ -12,6 +12,7 @@ public class SpawnEnemigo_Punto : MonoBehaviour
 
     [SerializeField] private Transform[] puntosSpawn;
     [SerializeField] private GameObject enemigoPrefab;
+    [SerializeField] private GameObject Estatua;
     [SerializeField] private float tiempoSpawn;
     [SerializeField] private float attackRange = 1.0f;
 
@@ -36,7 +37,7 @@ public class SpawnEnemigo_Punto : MonoBehaviour
     void Update()
     {
         if (player == null) return;
-
+        if (!Estatua.activeSelf) return;
         float distanceToPlayer = Vector2.Distance(transform.position, player.position);
         if (distanceToPlayer < attackRange)
         {
