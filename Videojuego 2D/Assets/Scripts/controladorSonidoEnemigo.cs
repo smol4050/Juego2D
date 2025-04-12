@@ -7,6 +7,12 @@ public class controladorSonidoEnemigo : MonoBehaviour
     [SerializeField] private AudioClip[] DamageReceived;
     [SerializeField] private AudioClip Died;
     public AudioSource audioSource;
+
+    private void Awake()
+    {
+        audioSource = GetComponent<AudioSource>();
+    }
+
     public void selectAudioDied()
     {
        Debug.Log("Se intentó reproducir sonido de muerte del enemigo.");
