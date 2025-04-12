@@ -37651,6 +37651,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 7739929930540230480, guid: d61b6feb8c9eb14499783df85117ae78, type: 3}
+      propertyPath: sonidoLife
+      value: 
+      objectReference: {fileID: 8300000, guid: 5848eeb1837c16b469a0b727ca83be8f, type: 3}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -37793,6 +37797,14 @@ PrefabInstance:
       propertyPath: m_Name
       value: Life
       objectReference: {fileID: 0}
+    - target: {fileID: 7539660779522534536, guid: 78a1b83f19ae2a849a00ab22bf1efeb3, type: 3}
+      propertyPath: sonidoLife
+      value: 
+      objectReference: {fileID: 8300000, guid: 5848eeb1837c16b469a0b727ca83be8f, type: 3}
+    - target: {fileID: 7539660779522534536, guid: 78a1b83f19ae2a849a00ab22bf1efeb3, type: 3}
+      propertyPath: sonidoBoost
+      value: 
+      objectReference: {fileID: 8300000, guid: 296b897c2ce18f14282e8adc6f209515, type: 3}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
