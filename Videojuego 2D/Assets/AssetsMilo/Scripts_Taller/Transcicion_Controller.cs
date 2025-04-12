@@ -44,7 +44,7 @@ public class TransitionController : MonoBehaviour
 
         animator.SetTrigger("TransicionActiva"); // activa la animación
 
-        yield return new WaitForSeconds(animacionFinal.length);
+        yield return new WaitForSeconds(0.01f);
         SceneManager.LoadScene(nombreEscena);
 
         
