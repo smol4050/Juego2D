@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 2405252125111555265}
   - component: {fileID: 8184247590993637270}
   - component: {fileID: 5164520235356990178}
-  - component: {fileID: -7648822938195113074}
+  - component: {fileID: 4379075864087811260}
   - component: {fileID: 3700120274679059582}
   m_Layer: 0
   m_Name: RedApple
@@ -132,7 +132,7 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 0.12, y: 0.15}
   m_EdgeRadius: 0
---- !u!114 &-7648822938195113074
+--- !u!114 &4379075864087811260
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}

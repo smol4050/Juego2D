@@ -15,6 +15,12 @@ EditorBuildSettings:
     path: Assets/Scenes/Creditos.unity
     guid: 673d34bd4a6953f43ac4f8734f252459
   - enabled: 1
+    path: Assets/Scenes/Waen.unity
+    guid: d6428e270a75ba4498566061bed946c0
+  - enabled: 1
+    path: Assets/Scenes/Stiven.unity
+    guid: 9bfa3cf5c174f8245a5d21fe845e57fd
+  - enabled: 1
     path: Assets/Scenes/Milo.unity
     guid: 4a66098893aeb4e47a32668b63310205
   m_configObjects: {}

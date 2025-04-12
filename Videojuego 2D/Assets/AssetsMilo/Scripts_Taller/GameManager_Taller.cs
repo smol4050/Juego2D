@@ -5,7 +5,7 @@ using UnityEngine;
 public class GameManager_Taller : MonoBehaviour
 {
     private float tiempoJugadoTotal;
-    private int puntaje;
+    private int Totalscore;
     private int cantElementosRecolectados;
 
     // Variable para mantener la referencia al GameManager_Taller
@@ -24,7 +24,7 @@ public class GameManager_Taller : MonoBehaviour
         }
 
         tiempoJugadoTotal = 0;
-        puntaje = 0;
+        Totalscore = 0;
         cantElementosRecolectados = 0;
     }
 
@@ -43,7 +43,7 @@ public class GameManager_Taller : MonoBehaviour
     // Método para agregar puntaje (puede ser llamado desde otros scripts)
     public void AgregarPuntaje(int puntos)
     {
-        puntaje += puntos;
+        Totalscore += puntos;
     }
 
     // Método para agregar elementos recolectados (también llamado desde otros scripts)
@@ -64,7 +64,7 @@ public class GameManager_Taller : MonoBehaviour
     // Obtener el puntaje (este será el que se enviará al JSON)
     public int GetScore()
     {
-        return puntaje;
+        return Totalscore;
     }
 
     // Obtener la cantidad de elementos recolectados (este será el que se enviará al JSON)
@@ -75,7 +75,9 @@ public class GameManager_Taller : MonoBehaviour
     public void ResetearJuego()
     {
         tiempoJugadoTotal = 0;
-        puntaje = 0;
+        Totalscore = 0;
         cantElementosRecolectados = 0;
     }
+
+
 }
