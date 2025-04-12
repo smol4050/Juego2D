@@ -67768,6 +67768,10 @@ PrefabInstance:
       value: 0.53
       objectReference: {fileID: 0}
     - target: {fileID: 2879464223545384557, guid: af91c4820e1180943816f53573b20aa5, type: 3}
+      propertyPath: deathCanvas
+      value: 
+      objectReference: {fileID: 257536809}
+    - target: {fileID: 2879464223545384557, guid: af91c4820e1180943816f53573b20aa5, type: 3}
       propertyPath: attackDamage
       value: 30
       objectReference: {fileID: 0}
