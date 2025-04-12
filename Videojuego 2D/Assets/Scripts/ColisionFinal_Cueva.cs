@@ -4,9 +4,20 @@ using UnityEngine;
 
 public class ColisionFinal_Cueva : MonoBehaviour
 {
-    // Start is called before the first frame update
     private GameControllerScene1 gameController;
-    private void OnTriggerEnter(Collider other)
+
+    void Start()
+    {
+        // Find the GameControllerScene1 instance in the scene
+        gameController = FindObjectOfType<GameControllerScene1>();
+        if (gameController == null)
+        {
+            Debug.LogError("GameControllerScene1 not found in the scene.");
+        }
+    }
+    // Start is called before the first frame update
+    
+    private void OnTriggerEnter2D(Collider2D other)
     {
         Debug.Log("Colision");
 
