@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 public class PlayerController : MonoBehaviour, IDamage
 {
+    public GameObject deathCanvas;
     float horizontalInput;
     [SerializeField] private int baseSpeed;
     [SerializeField ]private int currentSpeed;
@@ -194,7 +195,11 @@ public class PlayerController : MonoBehaviour, IDamage
             isDead = true;
             Debug.Log("Player died!");
             animator.SetTrigger("dead");
-            
+
+            if (deathCanvas != null)
+            {
+                deathCanvas.SetActive(true);
+            }
         }
     }
 
