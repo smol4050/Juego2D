@@ -43,7 +43,7 @@ public class Spell : MonoBehaviour
             if (damageTimers[other.gameObject] >= 1f)
             {
                 var player = other.GetComponent<PlayerController>();
-                if (player != null)
+                if (player != null && other.gameObject.activeInHierarchy)
                 {
                     player.TakeDamage(damagePerSecond);
                 }

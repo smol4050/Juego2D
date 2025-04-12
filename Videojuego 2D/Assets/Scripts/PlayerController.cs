@@ -184,6 +184,7 @@ public class PlayerController : MonoBehaviour, IDamage
         healthBar.setHealth(PlayercurrentHealth);
         animator.SetTrigger("hit");
         controladorSonidoJugador.selectAudioDamageReceived();
+        Debug.Log("El jugador recibió " + damage + " de daño");
         Debug.Log("Player took damage: " + damage + ", current health: " + PlayercurrentHealth);
     }
 

@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using JetBrains.Annotations;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class EnemyController : Enemy
 {
@@ -38,6 +39,10 @@ public class EnemyController : Enemy
     // Update is called once per frame
     void Update()
     {
+        if (SceneManager.GetActiveScene().name == "Stiven")
+        {
+            this.enabled = false;
+        }
         float distanceToPlayer = Vector2.Distance(transform.position, player.position);
 
     if (distanceToPlayer < attackRange)

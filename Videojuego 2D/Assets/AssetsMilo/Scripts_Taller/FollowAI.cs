@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class FollowAI : MonoBehaviour
 {
@@ -8,6 +9,10 @@ public class FollowAI : MonoBehaviour
 
     void Update()
     {
+        if (SceneManager.GetActiveScene().name == "Stiven")
+        {
+            this.enabled = false;
+        }
         bool isPlayerRight = transform.position.x < player.transform.position.x;
         Flip(isPlayerRight);
     }

@@ -29,6 +29,10 @@ public class SpawnBossTrigger : MonoBehaviour
         if (bossObject != null)
         {
             bossObject.SetActive(true);
+            if (healthBarSlider != null)
+            {
+                healthBarSlider.gameObject.SetActive(true);
+            }
         }
         else
         {

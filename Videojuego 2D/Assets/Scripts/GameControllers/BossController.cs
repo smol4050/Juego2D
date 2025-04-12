@@ -167,11 +167,6 @@ public class BossController : MonoBehaviour
     {
         if (canAttack)
         {
-            PlayerController playerController = player.GetComponent<PlayerController>();
-            if (playerController != null)
-            {
-                playerController.TakeDamage(attackDamage);
-            }
             sonidoBoss.selectAudioAtack();
             animator.SetBool("isWalking", false);
             animator.SetTrigger("isAttacking");
@@ -292,14 +287,18 @@ public class BossController : MonoBehaviour
         canCastSpell = false;
         animator.SetTrigger("isCasting");
 
-        
         float castAnimationDuration = 1.5f;
         yield return new WaitForSeconds(castAnimationDuration);
 
-        
-
         Vector3 spellPosition = new Vector3(player.position.x, -1.25f, player.position.z);
         GameObject spellInstance = Instantiate(spellPrefab, spellPosition, Quaternion.identity);
+
+        
+        PlayerController playerController = player.GetComponent<PlayerController>();
+        if (playerController != null)
+        {
+            playerController.TakeDamage(attackDamage);
+        }
 
         Animator spellAnimator = spellInstance.GetComponent<Animator>();
         if (spellAnimator != null)
@@ -311,6 +310,7 @@ public class BossController : MonoBehaviour
         yield return new WaitForSeconds(spellCooldown);
         canCastSpell = true;
     }
+
 
 
     public void SetInvulnerable(bool state)
@@ -341,12 +341,15 @@ public class BossController : MonoBehaviour
         }
     }
 
-    private void OnCollisionEnter2D(Collision2D collision)
+    private void OnTriggerEnter2D(Collider2D other)
     {
-        Debug.Log("Colisi�n con: " + collision.gameObject.name);
-        if (collision.gameObject.CompareTag("Skeleton"))
+        if (other.CompareTag("Player") && attackHitbox.activeSelf)
         {
-            Destroy(collision.gameObject);
+            PlayerController playerController = other.GetComponent<PlayerController>();
+            if (playerController != null)
+            {
+                playerController.TakeDamage(attackDamage);
+            }
         }
     }
 }

@@ -8030,10 +8030,12 @@ MonoBehaviour:
   - {fileID: 8300000, guid: d6ce123e64f2b7146b83324f0f8310de, type: 3}
   - {fileID: 8300000, guid: fcdfa7271e3d6734b86f34501752f7dd, type: 3}
   - {fileID: 8300000, guid: 8b8bd4b16a91098469f357763226b7d0, type: 3}
-  DamageReceived: []
-  Died: {fileID: 0}
+  DamageReceived:
+  - {fileID: 8300000, guid: 22a59e04b4823854aac2d0705f2dedd6, type: 3}
+  - {fileID: 8300000, guid: c6236aa5eea013d42aa3c8861d7ee908, type: 3}
+  Died: {fileID: 8300000, guid: 6983cedb970337242b578c6ded0e57bf, type: 3}
   JumpAudio: {fileID: 8300000, guid: fd681270bbc02d348952cfe631ccece5, type: 3}
-  RunAudio: {fileID: 0}
+  RunAudio: {fileID: 8300000, guid: a1d0d98736ec6c645abecc91b961ee4e, type: 3}
   audioSource: {fileID: 0}
   pasos: {fileID: 873525983}
 --- !u!4 &847143258
@@ -8931,6 +8933,17 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
+--- !u!114 &1400545691 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 8998181703015996385, guid: 09a3c50b3c3fea34b8d1602ae7b05c78, type: 3}
+  m_PrefabInstance: {fileID: 1161858055}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3874a4ff417c60b409770c793b5f0842, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1421832101
 GameObject:
   m_ObjectHideFlags: 0
@@ -10250,6 +10263,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 8927267111981470472, guid: 6fd6b56c8b4e9ca43ba6ea034e0a43a8, type: 3}
     - target: {fileID: 552994004877813548, guid: e4df0c93cfb9eae498d54cfc9af76dac, type: 3}
+      propertyPath: attackDamage
+      value: 20
+      objectReference: {fileID: 0}
+    - target: {fileID: 552994004877813548, guid: e4df0c93cfb9eae498d54cfc9af76dac, type: 3}
       propertyPath: skeletonWarrior
       value: 
       objectReference: {fileID: 408667863}
@@ -10655,6 +10672,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 2879464223545384557, guid: af91c4820e1180943816f53573b20aa5, type: 3}
+      propertyPath: healthBar
+      value: 
+      objectReference: {fileID: 1400545691}
     - target: {fileID: 2879464223545384557, guid: af91c4820e1180943816f53573b20aa5, type: 3}
       propertyPath: controladorSonidoJugador
       value: 
