@@ -1214,7 +1214,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 182971a6e8600c342b7fd979b4ef3c08, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  txtGeneralScore: {fileID: 0}
+  txtGeneralScore: {fileID: 1161858056}
   itemScore: 0
 --- !u!4 &301225710
 Transform:
@@ -9790,6 +9790,17 @@ PrefabInstance:
       addedObject: {fileID: 1497862690}
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 09a3c50b3c3fea34b8d1602ae7b05c78, type: 3}
+--- !u!114 &1161858056 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 2062165006108660998, guid: 09a3c50b3c3fea34b8d1602ae7b05c78, type: 3}
+  m_PrefabInstance: {fileID: 1161858055}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1235452360
 GameObject:
   m_ObjectHideFlags: 0
