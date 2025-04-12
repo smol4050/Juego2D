@@ -53,6 +53,18 @@
             "tiempo": 14.976167678833008,
             "score": 20,
             "cantElementos": 1
+        },
+        {
+            "nombreJugador": "Raul",
+            "tiempo": 0.0,
+            "score": 53,
+            "cantElementos": 13
+        },
+        {
+            "nombreJugador": "Raul",
+            "tiempo": 0.0,
+            "score": 53,
+            "cantElementos": 13
         }
     ]
 }
