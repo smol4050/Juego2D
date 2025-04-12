@@ -1006,7 +1006,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   txtAppleScore: {fileID: 2063200988}
   appleScore: 0
-  ColisionFinal: {fileID: 0}
 --- !u!4 &448898356
 Transform:
   m_ObjectHideFlags: 0
@@ -14637,7 +14636,7 @@ BoxCollider2D:
   m_CallbackLayers:
     serializedVersion: 2
     m_Bits: 4294967295
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: 1.4182854, y: 1.3082476}
@@ -14662,7 +14661,7 @@ Transform:
   m_GameObject: {fileID: 1049561109}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 111.7349, y: -0.29957318, z: 0.098400764}
+  m_LocalPosition: {x: 112.44, y: -0.29957318, z: 0.098400764}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
