@@ -1514,8 +1514,12 @@ PrefabInstance:
     m_TransformParent: {fileID: 1468896815}
     m_Modifications:
     - target: {fileID: 5890808290831353443, guid: f975970f034f7f945bab703387080dbb, type: 3}
+      propertyPath: controladorSE
+      value: 
+      objectReference: {fileID: 91354365}
+    - target: {fileID: 5890808290831353443, guid: f975970f034f7f945bab703387080dbb, type: 3}
       propertyPath: enemyMaxHealth
-      value: 80
+      value: 70
       objectReference: {fileID: 0}
     - target: {fileID: 6001112485852654286, guid: f975970f034f7f945bab703387080dbb, type: 3}
       propertyPath: tiempoSpawn
@@ -67761,7 +67765,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2879464223545384557, guid: af91c4820e1180943816f53573b20aa5, type: 3}
       propertyPath: attackRange
-      value: 0.35
+      value: 0.53
       objectReference: {fileID: 0}
     - target: {fileID: 2879464223545384557, guid: af91c4820e1180943816f53573b20aa5, type: 3}
       propertyPath: attackDamage
@@ -68090,6 +68094,14 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1468896815}
     m_Modifications:
+    - target: {fileID: 5890808290831353443, guid: f975970f034f7f945bab703387080dbb, type: 3}
+      propertyPath: controladorSE
+      value: 
+      objectReference: {fileID: 91354365}
+    - target: {fileID: 5890808290831353443, guid: f975970f034f7f945bab703387080dbb, type: 3}
+      propertyPath: enemyMaxHealth
+      value: 70
+      objectReference: {fileID: 0}
     - target: {fileID: 6001112485852654286, guid: f975970f034f7f945bab703387080dbb, type: 3}
       propertyPath: player
       value: 
@@ -69910,12 +69922,16 @@ PrefabInstance:
     m_TransformParent: {fileID: 1468896815}
     m_Modifications:
     - target: {fileID: 5890808290831353443, guid: f975970f034f7f945bab703387080dbb, type: 3}
+      propertyPath: controladorSE
+      value: 
+      objectReference: {fileID: 91354365}
+    - target: {fileID: 5890808290831353443, guid: f975970f034f7f945bab703387080dbb, type: 3}
       propertyPath: attackCooldown
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5890808290831353443, guid: f975970f034f7f945bab703387080dbb, type: 3}
       propertyPath: enemyMaxHealth
-      value: 80
+      value: 70
       objectReference: {fileID: 0}
     - target: {fileID: 6001112485852654286, guid: f975970f034f7f945bab703387080dbb, type: 3}
       propertyPath: tiempoSpawn
@@ -77728,7 +77744,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7809093939455490450, guid: 2b1d07ad0654f964688464904d16db06, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8022733120342492645, guid: 2b1d07ad0654f964688464904d16db06, type: 3}
       propertyPath: m_Pivot.x
@@ -77827,6 +77843,10 @@ PrefabInstance:
       propertyPath: player
       value: 
       objectReference: {fileID: 1164891377}
+    - target: {fileID: 5890808290831353443, guid: f975970f034f7f945bab703387080dbb, type: 3}
+      propertyPath: controladorSE
+      value: 
+      objectReference: {fileID: 91354365}
     - target: {fileID: 5890808290831353443, guid: f975970f034f7f945bab703387080dbb, type: 3}
       propertyPath: enemyMaxHealth
       value: 80
