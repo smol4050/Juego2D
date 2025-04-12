@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 8184247590993637270}
   - component: {fileID: 5164520235356990178}
   - component: {fileID: -7648822938195113074}
+  - component: {fileID: 3700120274679059582}
   m_Layer: 0
   m_Name: RedApple
   m_TagString: Untagged
@@ -144,3 +145,16 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   cantidadPuntos: 3
+--- !u!114 &3700120274679059582
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7430044116441104257}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c360b0b59e86ba945becc1b829261389, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  sonidoManzana: {fileID: 8300000, guid: b44fd508888b9e64d87e0dd8f0041651, type: 3}

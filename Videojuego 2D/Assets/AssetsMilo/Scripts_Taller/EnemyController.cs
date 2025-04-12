@@ -5,6 +5,8 @@ using UnityEngine;
 
 public class EnemyController : Enemy
 {
+    [SerializeField] controladorSonidoEnemigo controladorSE;
+
     public Transform player;
     public float speed = 5.0f;
     public float attackRange = 1.0f;
@@ -68,13 +70,19 @@ public class EnemyController : Enemy
 
     public override void TakeDamage(int damage)
     {
+        controladorSE.selectAudioDamageReceived();
+        Animator.SetTrigger("hit"); // Llama al trigger de daño en el Animator
         base.TakeDamage(damage); // Usa la lógica base (restar salud y morir si <= 0)
+         // Llama al sonido de daño recibido
+         controladorSE.selectAudioDamageReceived();
     }
 
     protected override void Die()
     {
+         
         Debug.Log("Enemy died!");
         gameObject.SetActive(false);
+        controladorSE.selectAudioDied();
     }
     private void OnDrawGizmosSelected()
     {

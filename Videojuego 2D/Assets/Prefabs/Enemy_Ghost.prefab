@@ -186,11 +186,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   enemyMaxHealth: 100
   enemyCurrentHealth: 0
+  controladorSE: {fileID: 0}
   player: {fileID: 0}
   speed: 1.62
   attackRange: 3.18
   attackDamage: 10
-  attackCooldown: 1
+  attackCooldown: 5
   minDistance: 3.03
 --- !u!114 &8019336664214671832
 MonoBehaviour:
