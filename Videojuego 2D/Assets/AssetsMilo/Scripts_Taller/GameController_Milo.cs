@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class GameController_Milo : MonoBehaviour
 {
@@ -27,5 +28,15 @@ public class GameController_Milo : MonoBehaviour
     public void itemsRecolectados(int item)
     {
         GameManager_Taller.Instance.AgregarElementosRecolectados(item);
+    }
+
+    public void ReloadScene()
+    {
+        SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+    }
+
+    public void GoToSceneMenu()
+    {
+        SceneManager.LoadScene("Menu_IU");
     }
 }
