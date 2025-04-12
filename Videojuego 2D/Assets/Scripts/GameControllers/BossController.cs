@@ -31,6 +31,7 @@ public class BossController : MonoBehaviour
     private bool canDash = true;
     public GameObject skeletonWarrior;
     private GameObject attackHitbox;
+    [SerializeField] private GameObject estrellaCambioNivel;
 
     [SerializeField] public SonidoBoss sonidoBoss;
 
@@ -234,8 +235,19 @@ public class BossController : MonoBehaviour
         isDead = true;
         animator.SetTrigger("Die");
 
+        if (estrellaCambioNivel != null)
+        {
+            estrellaCambioNivel.transform.position = transform.position;
+            estrellaCambioNivel.SetActive(true);
+        }
+        else
+        {
+            Debug.LogWarning("El objeto EstrellaCambioNivel no está asignado en el Inspector.");
+        }
+
         StartCoroutine(HandleDeath());
     }
+
 
     private IEnumerator HandleDeath()
     {
