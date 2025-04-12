@@ -10,7 +10,10 @@ public class Spell : MonoBehaviour
     private void Awake()
     {
         hitbox = GetComponent<Collider2D>();
-        hitbox.enabled = false;
+        if (hitbox != null)
+        {
+            hitbox.enabled = false;
+        }
     }
 
     private void OnEnable()
@@ -19,14 +22,21 @@ public class Spell : MonoBehaviour
         newPosition.y = -1.25f;
         transform.position = newPosition;
     }
+
     public void EnableHitbox()
     {
-        hitbox.enabled = true;
+        if (hitbox != null)
+        {
+            hitbox.enabled = true;
+        }
     }
 
     public void DisableHitbox()
     {
-        hitbox.enabled = false;
+        if (hitbox != null)
+        {
+            hitbox.enabled = false;
+        }
     }
 
     private void OnTriggerStay2D(Collider2D other)
@@ -64,5 +74,4 @@ public class Spell : MonoBehaviour
     {
         Destroy(gameObject);
     }
-
 }

@@ -288,9 +288,17 @@ public class BossController : MonoBehaviour
             GameObject attackInstance = Instantiate(spellPrefab, transform.position, Quaternion.identity);
             attackInstance.GetComponent<Rigidbody2D>().velocity = attackDirection * attackSpeed;
 
+            
+            Spell spellScript = attackInstance.GetComponent<Spell>();
+            if (spellScript != null)
+            {
+                spellScript.EnableHitbox();
+            }
+
             Invoke(nameof(ResetAttack), attackCooldown);
         }
     }
+
 
     private IEnumerator CastSpell()
     {
@@ -306,22 +314,30 @@ public class BossController : MonoBehaviour
         GameObject spellInstance = Instantiate(spellPrefab, spellPosition, Quaternion.identity);
 
         
-        PlayerController playerController = player.GetComponent<PlayerController>();
-        if (playerController != null)
+        Spell spellScript = spellInstance.GetComponent<Spell>();
+        if (spellScript != null)
         {
-            playerController.TakeDamage(attackDamage);
+            spellScript.EnableHitbox();
         }
 
+        
         Animator spellAnimator = spellInstance.GetComponent<Animator>();
         if (spellAnimator != null)
         {
             yield return new WaitForSeconds(spellAnimator.GetCurrentAnimatorStateInfo(0).length);
         }
 
+        
+        if (spellScript != null)
+        {
+            spellScript.DisableHitbox();
+        }
         Destroy(spellInstance);
+
         yield return new WaitForSeconds(spellCooldown);
         canCastSpell = true;
     }
+
 
 
 
