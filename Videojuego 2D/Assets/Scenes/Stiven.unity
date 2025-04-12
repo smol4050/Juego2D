@@ -11572,6 +11572,10 @@ PrefabInstance:
       propertyPath: skeletonWarrior
       value: 
       objectReference: {fileID: 408667863}
+    - target: {fileID: 552994004877813548, guid: e4df0c93cfb9eae498d54cfc9af76dac, type: 3}
+      propertyPath: estrellaCambioNivel
+      value: 
+      objectReference: {fileID: 87371872}
     - target: {fileID: 1224667950511850534, guid: e4df0c93cfb9eae498d54cfc9af76dac, type: 3}
       propertyPath: m_Size.x
       value: 0.46991816
