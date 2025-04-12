@@ -11,8 +11,8 @@ GameObject:
   - component: {fileID: 2993660542624001024}
   - component: {fileID: 2158569615670859506}
   - component: {fileID: 580568060314271358}
-  - component: {fileID: -4780931152839487853}
   - component: {fileID: -3079618897543193625}
+  - component: {fileID: 1408400990263227009}
   m_Layer: 0
   m_Name: GreenApple
   m_TagString: Untagged
@@ -132,19 +132,6 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 0.12, y: 0.15}
   m_EdgeRadius: 0
---- !u!114 &-4780931152839487853
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2452029630060481897}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1c6f1fc143f8202439c0999ab5178f53, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  cantidadPuntos: 1
 --- !u!114 &-3079618897543193625
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -158,3 +145,16 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   sonidoManzana: {fileID: 8300000, guid: b44fd508888b9e64d87e0dd8f0041651, type: 3}
+--- !u!114 &1408400990263227009
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2452029630060481897}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1c6f1fc143f8202439c0999ab5178f53, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  cantidadPuntos: 1
