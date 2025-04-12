@@ -79,15 +79,15 @@ GameObject:
   - component: {fileID: 2555161375025414713}
   - component: {fileID: 4557087809512939686}
   - component: {fileID: 7871550038307564313}
-  - component: {fileID: 3945237594910758878}
   - component: {fileID: 1224667950511850534}
+  - component: {fileID: 552994004877813548}
   m_Layer: 6
   m_Name: Bringer-of-Death-SpritSheet_0
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &1740131327063519743
 Transform:
   m_ObjectHideFlags: 0
@@ -204,35 +204,6 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
---- !u!114 &3945237594910758878
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8563376375850385163}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a628bd2ac77d0294cbf94be3f9769c8b, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  player: {fileID: 5247505416191860203, guid: af91c4820e1180943816f53573b20aa5, type: 3}
-  spellPrefab: {fileID: 8927267111981470472, guid: 6fd6b56c8b4e9ca43ba6ea034e0a43a8, type: 3}
-  energyOrbPrefab: {fileID: 5928907673800009345, guid: e941b9c5b8f02f145bb49b2f08d8c287, type: 3}
-  moveSpeed: 3
-  attackRange: 2
-  detectionRange: 10
-  maxHealth: 1000
-  healthBarUI: {fileID: 1630852414598209617, guid: 4674d4839258fa44aa828cf0f45a97ef, type: 3}
-  dashSpeed: 6
-  dashDuration: 0.5
-  dashCooldown: 4
-  attackCooldown: 2
-  attackSpeed: 3
-  predictionTime: 1
-  orbPrefab: {fileID: 5928907673800009345, guid: e941b9c5b8f02f145bb49b2f08d8c287, type: 3}
-  spellCooldown: 4
-  sonidoBoss: {fileID: 7284145983951419359, guid: 1e637718547cc8d4cb303a269f8efb8f, type: 3}
 --- !u!70 &1224667950511850534
 CapsuleCollider2D:
   m_ObjectHideFlags: 0
@@ -268,3 +239,31 @@ CapsuleCollider2D:
   m_Offset: {x: 0.35729098, y: -0.1934384}
   m_Size: {x: 0.42707074, y: 0.5937914}
   m_Direction: 0
+--- !u!114 &552994004877813548
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8563376375850385163}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a628bd2ac77d0294cbf94be3f9769c8b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  player: {fileID: 0}
+  spellPrefab: {fileID: 0}
+  moveSpeed: 1
+  attackRange: 2
+  detectionRange: 10
+  maxHealth: 1000
+  healthBarUI: {fileID: 0}
+  dashSpeed: 3
+  dashDuration: 0.5
+  dashCooldown: 5
+  attackCooldown: 2
+  attackSpeed: 3
+  predictionTime: 1
+  spellCooldown: 4
+  skeletonWarrior: {fileID: 0}
+  sonidoBoss: {fileID: 0}

@@ -7,21 +7,18 @@ public class BossController : MonoBehaviour
     private Rigidbody2D rb;
     public Transform player;
     public GameObject spellPrefab;
-    public GameObject energyOrbPrefab;
 
     public float moveSpeed = 1f;
     public float attackRange = 2f;
     public float detectionRange = 10f;
     public int maxHealth = 1000;
-    public BossHealthBarUI healthBarUI;
+    [SerializeField] public BossHealthBarUI healthBarUI;
     public float dashSpeed = 3f;
     public float dashDuration = 0.5f;
     public float dashCooldown = 5f;
     public float attackCooldown = 2f;
     public float attackSpeed = 3f;
     public float predictionTime = 1f;
-
-    public GameObject orbPrefab;
     private bool isRetreating = false;
     public float spellCooldown = 4f;
     private bool canCastSpell = true;
@@ -31,28 +28,48 @@ public class BossController : MonoBehaviour
     private bool isDashing = false;
     private bool canAttack = true;
     private bool canDash = true;
+    public GameObject skeletonWarrior;
     private GameObject attackHitbox;
 
-    private float orbCooldown = 15f;
-    private bool canUseOrbAttack = true;
+    [SerializeField] public SonidoBoss sonidoBoss;
 
-    [SerializeField] SonidoBoss sonidoBoss;
-
-    private void Start()
+    private void Awake()
     {
+        currentHealth = maxHealth;
         animator = GetComponent<Animator>();
         rb = GetComponent<Rigidbody2D>();
-        attackHitbox = transform.Find("AttackHitbox").gameObject;
-        attackHitbox.SetActive(false);
+        attackHitbox = transform.Find("AttackHitbox")?.gameObject;
 
-        currentHealth = maxHealth;
-        healthBarUI.SetMaxHealth(maxHealth);
-        healthBarUI.Hide();
+        if (attackHitbox != null)
+        {
+            attackHitbox.SetActive(false);
+        }
 
-        sonidoBoss.IniciarSonidosRandom(2f);
+        if (healthBarUI != null)
+        {
+            healthBarUI.SetMaxHealth(maxHealth);
+            healthBarUI.Hide();
+        }
 
-        StartCoroutine(OrbAttackRoutine());
+        if (sonidoBoss != null)
+        {
+            sonidoBoss.IniciarSonidosRandom(2f);
+        }
+        else
+        {
+            Debug.LogWarning("Componente SonidoBoss no asignado.");
+        }
+
+        
+        GameObject[] skeletons = GameObject.FindGameObjectsWithTag("Skeleton");
+        foreach (GameObject skeleton in skeletons)
+        {
+            Destroy(skeleton);
+        }
     }
+
+
+
 
     private void Update()
     {
@@ -118,6 +135,7 @@ public class BossController : MonoBehaviour
                 break;
         }
     }
+
 
     private enum BossState
     {
@@ -273,29 +291,17 @@ public class BossController : MonoBehaviour
         yield return new WaitForSeconds(castAnimationDuration);
 
         
-        int attackChoice = Random.Range(0, 2);
 
-        if (attackChoice == 0)
+        Vector3 spellPosition = new Vector3(player.position.x, -1.25f, player.position.z);
+        GameObject spellInstance = Instantiate(spellPrefab, spellPosition, Quaternion.identity);
+
+        Animator spellAnimator = spellInstance.GetComponent<Animator>();
+        if (spellAnimator != null)
         {
-            Vector3 spellPosition = new Vector3(player.position.x, -1.25f, player.position.z);
-            GameObject spellInstance = Instantiate(spellPrefab, spellPosition, Quaternion.identity);
-
-            Animator spellAnimator = spellInstance.GetComponent<Animator>();
-            if (spellAnimator != null)
-            {
-                yield return new WaitForSeconds(spellAnimator.GetCurrentAnimatorStateInfo(0).length);
-            }
-
-            Destroy(spellInstance);
-        }
-        else
-        {
-            Vector3 orbPosition = new Vector3(player.position.x, -1.25f, player.position.z);
-            GameObject orbInstance = Instantiate(orbPrefab, orbPosition, Quaternion.identity);
-
-            
+            yield return new WaitForSeconds(spellAnimator.GetCurrentAnimatorStateInfo(0).length);
         }
 
+        Destroy(spellInstance);
         yield return new WaitForSeconds(spellCooldown);
         canCastSpell = true;
     }
@@ -318,64 +324,23 @@ public class BossController : MonoBehaviour
 
     public void Appear()
     {
-        healthBarUI.Show();
-    }
-
-    
-    private IEnumerator OrbAttackRoutine()
-    {
-        while (!isDead)
+        if (healthBarUI != null)
         {
-            yield return new WaitForSeconds(orbCooldown);
-            StartCoroutine(SpawnAndRotateOrbs());
+            healthBarUI.gameObject.SetActive(true);
+            healthBarUI.Show();
+        }
+        else
+        {
+            Debug.LogWarning("healthBarUI no está asignado en el Inspector.");
         }
     }
 
-    private IEnumerator SpawnAndRotateOrbs()
+    private void OnCollisionEnter2D(Collision2D collision)
     {
-        float duration = 8f;
-        float speed = 180f;
-        float radius = 2f;
-
-        Vector3[] directions = new Vector3[]
+        Debug.Log("Colisión con: " + collision.gameObject.name);
+        if (collision.gameObject.CompareTag("Skeleton"))
         {
-            Vector3.up,
-            Vector3.down,
-            Vector3.left,
-            Vector3.right
-        };
-
-        GameObject[] orbs = new GameObject[4];
-        for (int i = 0; i < 4; i++)
-        {
-            Vector3 offset = directions[i] * radius;
-            orbs[i] = Instantiate(energyOrbPrefab, transform.position + offset, Quaternion.identity);
-            orbs[i].transform.SetParent(transform);
-        }
-
-        float elapsed = 0f;
-        while (elapsed < duration)
-        {
-            elapsed += Time.deltaTime;
-            float angle = speed * elapsed;
-
-            for (int i = 0; i < orbs.Length; i++)
-            {
-                if (orbs[i] != null)
-                {
-                    float rad = (angle + i * 90f) * Mathf.Deg2Rad;
-                    float x = Mathf.Cos(rad) * radius;
-                    float y = Mathf.Sin(rad) * radius;
-                    orbs[i].transform.localPosition = new Vector3(x, y, 0f);
-                }
-            }
-
-            yield return null;
-        }
-
-        foreach (var orb in orbs)
-        {
-            if (orb != null) Destroy(orb);
+            Destroy(collision.gameObject);
         }
     }
 }

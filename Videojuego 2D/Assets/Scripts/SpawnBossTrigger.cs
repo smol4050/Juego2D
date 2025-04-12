@@ -1,43 +1,39 @@
 using UnityEngine;
+using UnityEngine.UI;
 
 public class SpawnBossTrigger : MonoBehaviour
 {
-    public GameObject bossPrefab;
-    public Transform bossSpawnPoint;
-    public GameObject skeletonWarrior;
-    public GameObject limite3;
+    public GameObject bossObject;
+    public Slider healthBarSlider;
+    public Collider2D limite3Collider;
+    public GameObject spellPrefab;
+    public SonidoBoss sonidoBoss;
 
     private bool hasSpawned = false;
 
     private void OnTriggerEnter2D(Collider2D other)
     {
-        if (hasSpawned) return;
+        if (!other.CompareTag("Player") || hasSpawned)
+            return;
 
-        if (other.CompareTag("Player"))
+        hasSpawned = true;
+
+        
+        if (limite3Collider != null)
         {
-            hasSpawned = true;
+            limite3Collider.isTrigger = false;
+            Debug.Log("Trigger de limite3 desactivado.");
+        }
 
-            GameObject bossInstance = Instantiate(bossPrefab, bossSpawnPoint.position, Quaternion.identity);
-
-            
-            BossController bossController = bossInstance.GetComponent<BossController>();
-            bossController.healthBarUI.Hide();
-
-            if (skeletonWarrior != null)
-            {
-                Destroy(skeletonWarrior);
-            }
-
-            if (limite3 != null)
-            {
-                Collider2D limiteCollider = limite3.GetComponent<Collider2D>();
-                if (limiteCollider != null)
-                {
-                    limiteCollider.isTrigger = false;
-                }
-            }
-
-            Destroy(gameObject);
+        
+        if (bossObject != null)
+        {
+            bossObject.SetActive(true);
+        }
+        else
+        {
+            Debug.LogWarning("El GameObject del boss no está asignado.");
         }
     }
 }
+
