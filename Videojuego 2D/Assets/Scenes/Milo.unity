@@ -1449,6 +1449,10 @@ PrefabInstance:
       propertyPath: player
       value: 
       objectReference: {fileID: 1164891377}
+    - target: {fileID: 1846881686868227975, guid: b69116f9bf81f8e49831cb96f779a6d1, type: 3}
+      propertyPath: enemyMaxHealth
+      value: 40
+      objectReference: {fileID: 0}
     - target: {fileID: 5603958069630259755, guid: b69116f9bf81f8e49831cb96f779a6d1, type: 3}
       propertyPath: m_LocalPosition.x
       value: 13.211
@@ -3083,7 +3087,7 @@ MonoBehaviour:
   - {fileID: 555791555}
   enemigoPrefab: {fileID: 1992401907}
   Estatua: {fileID: 260513629}
-  tiempoSpawn: 12
+  tiempoSpawn: 5
   attackRange: 2
 --- !u!1 &610590060
 GameObject:
@@ -8237,6 +8241,10 @@ PrefabInstance:
       propertyPath: player
       value: 
       objectReference: {fileID: 1164891377}
+    - target: {fileID: 1846881686868227975, guid: b69116f9bf81f8e49831cb96f779a6d1, type: 3}
+      propertyPath: enemyMaxHealth
+      value: 40
+      objectReference: {fileID: 0}
     - target: {fileID: 5603958069630259755, guid: b69116f9bf81f8e49831cb96f779a6d1, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0.40281165
@@ -13654,6 +13662,10 @@ PrefabInstance:
       propertyPath: player
       value: 
       objectReference: {fileID: 1164891377}
+    - target: {fileID: 1846881686868227975, guid: b69116f9bf81f8e49831cb96f779a6d1, type: 3}
+      propertyPath: enemyMaxHealth
+      value: 40
+      objectReference: {fileID: 0}
     - target: {fileID: 2225217008866145616, guid: b69116f9bf81f8e49831cb96f779a6d1, type: 3}
       propertyPath: m_SortingOrder
       value: 21
@@ -14444,6 +14456,10 @@ PrefabInstance:
       propertyPath: player
       value: 
       objectReference: {fileID: 1164891377}
+    - target: {fileID: 1846881686868227975, guid: b69116f9bf81f8e49831cb96f779a6d1, type: 3}
+      propertyPath: enemyMaxHealth
+      value: 40
+      objectReference: {fileID: 0}
     - target: {fileID: 5603958069630259755, guid: b69116f9bf81f8e49831cb96f779a6d1, type: 3}
       propertyPath: m_LocalPosition.x
       value: 12.26
@@ -64899,6 +64915,10 @@ PrefabInstance:
       propertyPath: player
       value: 
       objectReference: {fileID: 1164891377}
+    - target: {fileID: 1846881686868227975, guid: b69116f9bf81f8e49831cb96f779a6d1, type: 3}
+      propertyPath: enemyMaxHealth
+      value: 40
+      objectReference: {fileID: 0}
     - target: {fileID: 5603958069630259755, guid: b69116f9bf81f8e49831cb96f779a6d1, type: 3}
       propertyPath: m_LocalPosition.x
       value: 7.11
@@ -65198,6 +65218,17 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1072176016}
   m_CullTransparentMesh: 1
+--- !u!114 &1077454502 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 8998181703015996385, guid: 09a3c50b3c3fea34b8d1602ae7b05c78, type: 3}
+  m_PrefabInstance: {fileID: 1775682412}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3874a4ff417c60b409770c793b5f0842, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &1080036820
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -65699,8 +65730,12 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 2879464223545384557, guid: af91c4820e1180943816f53573b20aa5, type: 3}
       propertyPath: speed
-      value: 3
+      value: 1.7
       objectReference: {fileID: 0}
+    - target: {fileID: 2879464223545384557, guid: af91c4820e1180943816f53573b20aa5, type: 3}
+      propertyPath: healthBar
+      value: 
+      objectReference: {fileID: 1077454502}
     - target: {fileID: 2879464223545384557, guid: af91c4820e1180943816f53573b20aa5, type: 3}
       propertyPath: jumpForce
       value: 6
@@ -65979,7 +66014,7 @@ MonoBehaviour:
   - {fileID: 1428160096}
   enemigoPrefab: {fileID: 1992401907}
   Estatua: {fileID: 1676789150}
-  tiempoSpawn: 12
+  tiempoSpawn: 5
   attackRange: 2
 --- !u!1001 &1239023063
 PrefabInstance:
@@ -65993,6 +66028,10 @@ PrefabInstance:
       propertyPath: player
       value: 
       objectReference: {fileID: 1164891377}
+    - target: {fileID: 6001112485852654286, guid: f975970f034f7f945bab703387080dbb, type: 3}
+      propertyPath: tiempoSpawn
+      value: 5
+      objectReference: {fileID: 0}
     - target: {fileID: 6001112485852654286, guid: f975970f034f7f945bab703387080dbb, type: 3}
       propertyPath: enemigoPrefab
       value: 
@@ -67928,6 +67967,10 @@ PrefabInstance:
       propertyPath: player
       value: 
       objectReference: {fileID: 1164891377}
+    - target: {fileID: 1846881686868227975, guid: b69116f9bf81f8e49831cb96f779a6d1, type: 3}
+      propertyPath: enemyMaxHealth
+      value: 40
+      objectReference: {fileID: 0}
     - target: {fileID: 5603958069630259755, guid: b69116f9bf81f8e49831cb96f779a6d1, type: 3}
       propertyPath: m_LocalPosition.x
       value: 2.5463498
@@ -67998,6 +68041,10 @@ PrefabInstance:
       propertyPath: player
       value: 
       objectReference: {fileID: 1164891377}
+    - target: {fileID: 1846881686868227975, guid: b69116f9bf81f8e49831cb96f779a6d1, type: 3}
+      propertyPath: enemyMaxHealth
+      value: 40
+      objectReference: {fileID: 0}
     - target: {fileID: 5603958069630259755, guid: b69116f9bf81f8e49831cb96f779a6d1, type: 3}
       propertyPath: m_LocalPosition.x
       value: 16.51
@@ -68230,6 +68277,10 @@ PrefabInstance:
       propertyPath: player
       value: 
       objectReference: {fileID: 1164891377}
+    - target: {fileID: 1846881686868227975, guid: b69116f9bf81f8e49831cb96f779a6d1, type: 3}
+      propertyPath: enemyMaxHealth
+      value: 40
+      objectReference: {fileID: 0}
     - target: {fileID: 5603958069630259755, guid: b69116f9bf81f8e49831cb96f779a6d1, type: 3}
       propertyPath: m_LocalPosition.x
       value: 1.2415874
@@ -69358,6 +69409,10 @@ PrefabInstance:
       propertyPath: player
       value: 
       objectReference: {fileID: 1164891377}
+    - target: {fileID: 1846881686868227975, guid: b69116f9bf81f8e49831cb96f779a6d1, type: 3}
+      propertyPath: enemyMaxHealth
+      value: 40
+      objectReference: {fileID: 0}
     - target: {fileID: 2225217008866145616, guid: b69116f9bf81f8e49831cb96f779a6d1, type: 3}
       propertyPath: m_SortingOrder
       value: 21
@@ -74928,6 +74983,10 @@ PrefabInstance:
       propertyPath: player
       value: 
       objectReference: {fileID: 1164891377}
+    - target: {fileID: 1846881686868227975, guid: b69116f9bf81f8e49831cb96f779a6d1, type: 3}
+      propertyPath: enemyMaxHealth
+      value: 40
+      objectReference: {fileID: 0}
     - target: {fileID: 5603958069630259755, guid: b69116f9bf81f8e49831cb96f779a6d1, type: 3}
       propertyPath: m_LocalPosition.x
       value: 12.68
@@ -75161,6 +75220,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 1164891377}
     - target: {fileID: 6001112485852654286, guid: f975970f034f7f945bab703387080dbb, type: 3}
+      propertyPath: tiempoSpawn
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 6001112485852654286, guid: f975970f034f7f945bab703387080dbb, type: 3}
       propertyPath: enemigoPrefab
       value: 
       objectReference: {fileID: 1992401907}
@@ -75306,6 +75369,10 @@ PrefabInstance:
       propertyPath: player
       value: 
       objectReference: {fileID: 1164891377}
+    - target: {fileID: 1846881686868227975, guid: b69116f9bf81f8e49831cb96f779a6d1, type: 3}
+      propertyPath: enemyMaxHealth
+      value: 40
+      objectReference: {fileID: 0}
     - target: {fileID: 2225217008866145616, guid: b69116f9bf81f8e49831cb96f779a6d1, type: 3}
       propertyPath: m_SortingOrder
       value: 21
