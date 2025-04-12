@@ -820,8 +820,76 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 200220498465595594, guid: 7711b3de03d9d044fab995492d9c4d15, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 188827356}
+    - targetCorrespondingSourceObject: {fileID: 200220498465595594, guid: 7711b3de03d9d044fab995492d9c4d15, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 188827362}
   m_SourcePrefab: {fileID: 100100000, guid: 7711b3de03d9d044fab995492d9c4d15, type: 3}
+--- !u!1 &188827355 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 200220498465595594, guid: 7711b3de03d9d044fab995492d9c4d15, type: 3}
+  m_PrefabInstance: {fileID: 188827354}
+  m_PrefabAsset: {fileID: 0}
+--- !u!61 &188827356
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 188827355}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_ForceSendLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ForceReceiveLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ContactCaptureLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_CallbackLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0.5, y: 0.5}
+    oldSize: {x: 0.3, y: 0.28}
+    newSize: {x: 0.3, y: 0.28}
+    adaptiveTilingThreshold: 0.5
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 0.3, y: 0.28}
+  m_EdgeRadius: 0
+--- !u!114 &188827362
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 188827355}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d807b8b2fd7cdde40b9b7290e0b71a7b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &240960904
 GameObject:
   m_ObjectHideFlags: 0
@@ -11938,6 +12006,10 @@ PrefabInstance:
       propertyPath: deathCanvas
       value: 
       objectReference: {fileID: 459850481}
+    - target: {fileID: 2879464223545384557, guid: af91c4820e1180943816f53573b20aa5, type: 3}
+      propertyPath: attackDamage
+      value: 50
+      objectReference: {fileID: 0}
     - target: {fileID: 2879464223545384557, guid: af91c4820e1180943816f53573b20aa5, type: 3}
       propertyPath: controladorSonidoJugador
       value: 

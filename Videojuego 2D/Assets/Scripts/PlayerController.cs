@@ -25,11 +25,17 @@ public class PlayerController : MonoBehaviour, IDamage
     public bool Hactivo;
     private bool enElPisoAnterior;
     private bool isDead = false;
+    private bool canDash = false;
+    private float dashDistance = 2f;
+    private float dashCooldown = 1f;
+    private float lastDashTime = -Mathf.Infinity;
 
-     [SerializeField]private HealthBar healthBar;
+    [SerializeField]private HealthBar healthBar;
 
 
     [SerializeField] controladorSonidoJugador controladorSonidoJugador;
+    private float dashDuration;
+    private bool isDashing;
 
     // Start is called before the first frame update
     void Start()
@@ -43,15 +49,17 @@ public class PlayerController : MonoBehaviour, IDamage
 
     // Update is called once per frame
     void Update()
-    {   
+    {
         attack();
         movimiento();
         gestionarOrientacion();
         Salto();
+        HandleDash();
         Dead();
         enElPisoAnterior = enElPiso;
         healthBar.setHealth(PlayercurrentHealth);
     }
+
 
     private void movimiento(){
         animator.SetFloat("xVelocity", Mathf.Abs(rigidBody.velocity.x));
@@ -89,6 +97,54 @@ public class PlayerController : MonoBehaviour, IDamage
         }
 
     }
+
+    public void UnlockDash()
+    {
+        canDash = true;
+        Debug.Log("Dash desbloqueado");
+    }
+
+
+
+    private void HandleDash()
+    {
+        if (canDash && Input.GetKeyDown(KeyCode.G) && Time.time >= lastDashTime + dashCooldown)
+        {
+            StartCoroutine(Dash());
+        }
+    }
+
+    private IEnumerator Dash()
+    {
+        if (isDashing) yield break;
+
+        isDashing = true;
+
+        
+        float dashDirection = Mathf.Sign(rigidBody.velocity.x);
+
+        
+        if (dashDirection == 0)
+        {
+            isDashing = false;
+            yield break;
+        }
+
+        
+        Vector2 dashVector = new Vector2(dashDirection * dashDistance, 0f);
+
+        
+        rigidBody.velocity = new Vector2(0f, rigidBody.velocity.y);
+        rigidBody.position += dashVector;
+
+        yield return new WaitForSeconds(dashCooldown);
+
+        isDashing = false;
+    }
+
+
+
+
 
     private void gestionarOrientacion(){
         if((mirandoDerecha && horizontalInput > 0) || (!mirandoDerecha && horizontalInput < 0)){

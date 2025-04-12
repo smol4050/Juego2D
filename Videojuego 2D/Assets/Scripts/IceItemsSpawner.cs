@@ -13,7 +13,6 @@ public class IceItemsSpawner : MonoBehaviour
     [SerializeField] private float probCristal = 0.4f;
     [SerializeField] private float probVallas = 0.3f;
     [SerializeField] private float probGotaHelada = 0.2f;
-    [SerializeField] private float probPersonita = 0.1f;
 
     [SerializeField] private int cantidadDeObjetos = 7;
 
