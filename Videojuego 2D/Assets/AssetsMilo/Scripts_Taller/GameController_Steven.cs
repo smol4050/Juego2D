@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class GameController_Steven : MonoBehaviour
 {
@@ -29,5 +30,14 @@ public class GameController_Steven : MonoBehaviour
     public void siguienteNivel()
     {
         TransitionController.Instance.CambiarEscena("Milo");
+    }
+    public void ReloadScene()
+    {
+        SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+    }
+
+    public void GoToSceneMenu()
+    {
+        SceneManager.LoadScene("Menu_IU");
     }
 }

@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class GameControllerScene1 : MonoBehaviour
 {
@@ -33,7 +34,14 @@ public class GameControllerScene1 : MonoBehaviour
     {
         TransitionController.Instance.CambiarEscena(nameScene);
     }
+    public void ReloadScene()
+    {
+        SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+    }
 
-    
+    public void GoToSceneMenu()
+    {
+        SceneManager.LoadScene("Menu_IU");
+    }
 }
 

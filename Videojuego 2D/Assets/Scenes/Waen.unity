@@ -863,51 +863,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1 &206244881
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 206244883}
-  - component: {fileID: 206244882}
-  m_Layer: 0
-  m_Name: ---GameManager--
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!114 &206244882
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 206244881}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 01fb287683c3fed4d97e9f6b37716be9, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  appleScore: 0
---- !u!4 &206244883
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 206244881}
-  serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -368.38242, y: -0.91948926, z: -0.046787936}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 0}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &358471579
 GameObject:
   m_ObjectHideFlags: 0
@@ -6149,7 +6104,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7809093939455490450, guid: 2b1d07ad0654f964688464904d16db06, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8022733120342492645, guid: 2b1d07ad0654f964688464904d16db06, type: 3}
       propertyPath: m_Pivot.x
@@ -15831,8 +15786,8 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: GameController_Milo, Assembly-CSharp
+      - m_Target: {fileID: 448898355}
+        m_TargetAssemblyTypeName: GameControllerScene1, Assembly-CSharp
         m_MethodName: ReloadScene
         m_Mode: 1
         m_Arguments:
@@ -38415,8 +38370,8 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: GameController_Milo, Assembly-CSharp
+      - m_Target: {fileID: 448898355}
+        m_TargetAssemblyTypeName: GameControllerScene1, Assembly-CSharp
         m_MethodName: GoToSceneMenu
         m_Mode: 1
         m_Arguments:
@@ -39112,7 +39067,6 @@ SceneRoots:
   - {fileID: 1298489961}
   - {fileID: 924545283}
   - {fileID: 448898356}
-  - {fileID: 206244883}
   - {fileID: 770815242}
   - {fileID: 203305952}
   - {fileID: 1483054798}
