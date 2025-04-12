@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 4083777184479565593}
   - component: {fileID: 4203165232627673941}
   - component: {fileID: 5089963638576931507}
+  - component: {fileID: -5168866268844624551}
   m_Layer: 0
   m_Name: Personita
   m_TagString: Untagged
@@ -144,3 +145,16 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   cantidadPuntos: 4
+--- !u!114 &-5168866268844624551
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 200220498465595594}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1a15314dee49bb247a1f0d5ce3ba737a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  sonidoHielo: {fileID: 8300000, guid: 31dee208b4f9d3e4388d3f661cd20d37, type: 3}
