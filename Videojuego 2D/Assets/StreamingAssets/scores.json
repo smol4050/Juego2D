@@ -41,6 +41,18 @@
             "tiempo": 9.62868881225586,
             "score": 0,
             "cantElementos": 0
+        },
+        {
+            "nombreJugador": "juanjo",
+            "tiempo": 0.0,
+            "score": 20,
+            "cantElementos": 1
+        },
+        {
+            "nombreJugador": "azugre",
+            "tiempo": 14.976167678833008,
+            "score": 20,
+            "cantElementos": 1
         }
     ]
 }
