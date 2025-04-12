@@ -33,4 +33,7 @@ public class GameControllerScene1 : MonoBehaviour
     {
         TransitionController.Instance.CambiarEscena(nameScene);
     }
+
+    
 }
+

@@ -287,8 +287,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   txtGeneralScore: {fileID: 1775682413}
   itemScore: 0
-  PanelPuntaje: {fileID: 0}
-  Estrella: {fileID: 0}
+  PanelPuntaje: {fileID: 39698682}
+  Estrella: {fileID: 1730808457}
 --- !u!4 &9676008
 Transform:
   m_ObjectHideFlags: 0
