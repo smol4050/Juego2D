@@ -9,7 +9,6 @@ public class GameController_Milo : MonoBehaviour
     [SerializeField] private TextMeshProUGUI txtGeneralScore;
     [SerializeField] public int itemScore = 0;
     public GameObject PanelPuntaje;
-    public GameObject Estrella;
     void Start()
     {
         
@@ -47,12 +46,4 @@ public class GameController_Milo : MonoBehaviour
         PanelPuntaje.SetActive(true);
     }
 
-    private void OnTriggerEnter(Collider other)
-    {
-        if (other.CompareTag("Player"))
-        {
-            FinishGame();
-            Destroy(other.gameObject);
-        }
-    }
 }
