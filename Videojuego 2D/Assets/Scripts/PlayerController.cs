@@ -17,10 +17,13 @@ public class PlayerController : MonoBehaviour, IDamage
     public int attackDamage = 20;
     public float attackCooldown = 1f;
     private float attackTimer = 0f;
-    public int PlayermaxHealth = 100;
-    public int PlayercurrentHealth;
+    private int PlayermaxHealth = 100;
+    [SerializeField]private  int PlayercurrentHealth;
     public bool Hactivo;
     private bool enElPisoAnterior;
+    private bool isDead = false;
+
+     [SerializeField]private HealthBar healthBar;
 
 
     [SerializeField] controladorSonidoJugador controladorSonidoJugador;
@@ -31,6 +34,7 @@ public class PlayerController : MonoBehaviour, IDamage
         rigidBody = GetComponent<Rigidbody2D>();
         animator = GetComponent<Animator>();
         PlayercurrentHealth = PlayermaxHealth;
+        healthBar.setMaxHealth(PlayermaxHealth);
     }
 
     // Update is called once per frame
@@ -42,6 +46,7 @@ public class PlayerController : MonoBehaviour, IDamage
         Salto();
         Dead();
         enElPisoAnterior = enElPiso;
+        healthBar.setHealth(PlayercurrentHealth);
     }
 
     private void movimiento(){
@@ -166,7 +171,9 @@ public class PlayerController : MonoBehaviour, IDamage
 
     public void TakeDamage(int damage)
     {
+        if (isDead) return;
         PlayercurrentHealth -= damage;
+        healthBar.setHealth(PlayercurrentHealth);
         animator.SetTrigger("hit");
         controladorSonidoJugador.selectAudioDamageReceived();
         Debug.Log("Player took damage: " + damage + ", current health: " + PlayercurrentHealth);
@@ -174,18 +181,15 @@ public class PlayerController : MonoBehaviour, IDamage
 
     private void Dead(){
         if (PlayercurrentHealth <= 0){
-            Debug.Log("Player died!");
-            animator.SetTrigger("die");
-            controladorSonidoJugador.audioSource.Stop();
             controladorSonidoJugador.selectAudioDied();
+            isDead = true;
+            Debug.Log("Player died!");
+            animator.SetTrigger("dead");
             
-
-
         }
     }
-    public void DesacivarJugador()
-    {
-        Debug.Log("Jugador desactivado tras animación.");
+
+    private void desactivarjugador(){
         gameObject.SetActive(false);
     }
 }

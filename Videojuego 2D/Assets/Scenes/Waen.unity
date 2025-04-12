@@ -804,6 +804,17 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &485231074 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 8998181703015996385, guid: 09a3c50b3c3fea34b8d1602ae7b05c78, type: 3}
+  m_PrefabInstance: {fileID: 763331568352047846}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3874a4ff417c60b409770c793b5f0842, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &495456715
 GameObject:
   m_ObjectHideFlags: 0
@@ -14823,6 +14834,10 @@ PrefabInstance:
       propertyPath: player
       value: 
       objectReference: {fileID: 917584583}
+    - target: {fileID: 5539200908444505047, guid: 615fe1c97d6a50b4fbb7a4f3fd983594, type: 3}
+      propertyPath: attackCooldown
+      value: 5
+      objectReference: {fileID: 0}
     - target: {fileID: 5953961227380039249, guid: 615fe1c97d6a50b4fbb7a4f3fd983594, type: 3}
       propertyPath: m_Name
       value: Enemy_Ghost
@@ -37240,6 +37255,14 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 7246806934066249347, guid: 09a3c50b3c3fea34b8d1602ae7b05c78, type: 3}
+      propertyPath: m_AnchorMax.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7246806934066249347, guid: 09a3c50b3c3fea34b8d1602ae7b05c78, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -37452,6 +37475,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 2879464223545384557, guid: af91c4820e1180943816f53573b20aa5, type: 3}
+      propertyPath: healthBar
+      value: 
+      objectReference: {fileID: 485231074}
     - target: {fileID: 2879464223545384557, guid: af91c4820e1180943816f53573b20aa5, type: 3}
       propertyPath: controladorSonidoJugador
       value: 
