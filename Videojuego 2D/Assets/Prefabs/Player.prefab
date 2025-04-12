@@ -261,7 +261,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fe0d31071bbc83f4696801ce3a476508, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 4.5
+  baseSpeed: 5
+  currentSpeed: 5
   groundLayer:
     serializedVersion: 2
     m_Bits: 8
@@ -271,7 +272,9 @@ MonoBehaviour:
   enemyLayers:
     serializedVersion: 2
     m_Bits: 64
-  attackDamage: 20
+  attackDamage: 25
   attackCooldown: 1
-  PlayermaxHealth: 100
   PlayercurrentHealth: 0
+  Hactivo: 0
+  healthBar: {fileID: 0}
+  controladorSonidoJugador: {fileID: 0}

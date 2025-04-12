@@ -4,7 +4,7 @@ using UnityEngine;
 public class PlayerController : MonoBehaviour, IDamage
 {
     float horizontalInput;
-    private int baseSpeed = 4;
+    [SerializeField] private int baseSpeed;
     [SerializeField ]private int currentSpeed;
     private Coroutine speedBoostCoroutine;
     private Rigidbody2D rigidBody;
