@@ -7,6 +7,8 @@ public class BossController : MonoBehaviour
     private Rigidbody2D rb;
     public Transform player;
     public GameObject spellPrefab;
+    public GameObject energyOrbPrefab;
+
     public float moveSpeed = 1f;
     public float attackRange = 2f;
     public float detectionRange = 10f;
@@ -19,6 +21,7 @@ public class BossController : MonoBehaviour
     public float attackSpeed = 3f;
     public float predictionTime = 1f;
 
+    public GameObject orbPrefab;
     private bool isRetreating = false;
     public float spellCooldown = 4f;
     private bool canCastSpell = true;
@@ -29,6 +32,9 @@ public class BossController : MonoBehaviour
     private bool canAttack = true;
     private bool canDash = true;
     private GameObject attackHitbox;
+
+    private float orbCooldown = 15f;
+    private bool canUseOrbAttack = true;
 
     [SerializeField] SonidoBoss sonidoBoss;
 
@@ -44,6 +50,8 @@ public class BossController : MonoBehaviour
         healthBarUI.Hide();
 
         sonidoBoss.IniciarSonidosRandom(2f);
+
+        StartCoroutine(OrbAttackRoutine());
     }
 
     private void Update()
@@ -52,7 +60,6 @@ public class BossController : MonoBehaviour
 
         float distanceToPlayer = Vector2.Distance(transform.position, player.position);
 
-        
         if (currentHealth < maxHealth * 0.5f)
         {
             isRetreating = true;
@@ -64,7 +71,6 @@ public class BossController : MonoBehaviour
             return;
         }
 
-        
         switch (currentState)
         {
             case BossState.Idle:
@@ -113,10 +119,6 @@ public class BossController : MonoBehaviour
         }
     }
 
-
-
-
-
     private enum BossState
     {
         Idle,
@@ -128,7 +130,6 @@ public class BossController : MonoBehaviour
     }
 
     private BossState currentState = BossState.Idle;
-
 
     private void ChasePlayer()
     {
@@ -219,9 +220,7 @@ public class BossController : MonoBehaviour
 
     private IEnumerator HandleDeath()
     {
-
         yield return new WaitForSeconds(3f);
-
 
         Collider2D[] colliders = GetComponents<Collider2D>();
         foreach (var collider in colliders)
@@ -229,7 +228,6 @@ public class BossController : MonoBehaviour
             collider.enabled = false;
         }
 
-        
         yield return new WaitForSeconds(2f);
         gameObject.SetActive(false);
     }
@@ -237,15 +235,10 @@ public class BossController : MonoBehaviour
     private void RetreatFromPlayer()
     {
         animator.SetBool("isWalking", true);
-
-        
         Vector2 retreatDirection = (transform.position - player.position).normalized;
         rb.velocity = new Vector2(retreatDirection.x * moveSpeed, rb.velocity.y);
-
-        
         Vector2 playerFuturePosition = (Vector2)player.position + player.GetComponent<Rigidbody2D>().velocity * predictionTime;
 
-        
         if (canAttack)
         {
             AttackTowards(playerFuturePosition);
@@ -260,7 +253,6 @@ public class BossController : MonoBehaviour
             animator.SetTrigger("isAttacking");
             canAttack = false;
 
-            
             Vector2 attackDirection = (targetPosition - (Vector2)transform.position).normalized;
             GameObject attackInstance = Instantiate(spellPrefab, transform.position, Quaternion.identity);
             attackInstance.GetComponent<Rigidbody2D>().velocity = attackDirection * attackSpeed;
@@ -268,7 +260,6 @@ public class BossController : MonoBehaviour
             Invoke(nameof(ResetAttack), attackCooldown);
         }
     }
-
 
     private IEnumerator CastSpell()
     {
@@ -282,23 +273,32 @@ public class BossController : MonoBehaviour
         yield return new WaitForSeconds(castAnimationDuration);
 
         
-        Vector3 spellPosition = new Vector3(player.position.x, -1.25f, player.position.z);
-        GameObject spellInstance = Instantiate(spellPrefab, spellPosition, Quaternion.identity);
+        int attackChoice = Random.Range(0, 2);
 
-        
-        Animator spellAnimator = spellInstance.GetComponent<Animator>();
-        if (spellAnimator != null)
+        if (attackChoice == 0)
         {
-            yield return new WaitForSeconds(spellAnimator.GetCurrentAnimatorStateInfo(0).length);
-        }
+            Vector3 spellPosition = new Vector3(player.position.x, -1.25f, player.position.z);
+            GameObject spellInstance = Instantiate(spellPrefab, spellPosition, Quaternion.identity);
 
-        Destroy(spellInstance);
+            Animator spellAnimator = spellInstance.GetComponent<Animator>();
+            if (spellAnimator != null)
+            {
+                yield return new WaitForSeconds(spellAnimator.GetCurrentAnimatorStateInfo(0).length);
+            }
+
+            Destroy(spellInstance);
+        }
+        else
+        {
+            Vector3 orbPosition = new Vector3(player.position.x, -1.25f, player.position.z);
+            GameObject orbInstance = Instantiate(orbPrefab, orbPosition, Quaternion.identity);
+
+            
+        }
 
         yield return new WaitForSeconds(spellCooldown);
         canCastSpell = true;
     }
-
-
 
 
     public void SetInvulnerable(bool state)
@@ -319,5 +319,63 @@ public class BossController : MonoBehaviour
     public void Appear()
     {
         healthBarUI.Show();
+    }
+
+    
+    private IEnumerator OrbAttackRoutine()
+    {
+        while (!isDead)
+        {
+            yield return new WaitForSeconds(orbCooldown);
+            StartCoroutine(SpawnAndRotateOrbs());
+        }
+    }
+
+    private IEnumerator SpawnAndRotateOrbs()
+    {
+        float duration = 8f;
+        float speed = 180f;
+        float radius = 2f;
+
+        Vector3[] directions = new Vector3[]
+        {
+            Vector3.up,
+            Vector3.down,
+            Vector3.left,
+            Vector3.right
+        };
+
+        GameObject[] orbs = new GameObject[4];
+        for (int i = 0; i < 4; i++)
+        {
+            Vector3 offset = directions[i] * radius;
+            orbs[i] = Instantiate(energyOrbPrefab, transform.position + offset, Quaternion.identity);
+            orbs[i].transform.SetParent(transform);
+        }
+
+        float elapsed = 0f;
+        while (elapsed < duration)
+        {
+            elapsed += Time.deltaTime;
+            float angle = speed * elapsed;
+
+            for (int i = 0; i < orbs.Length; i++)
+            {
+                if (orbs[i] != null)
+                {
+                    float rad = (angle + i * 90f) * Mathf.Deg2Rad;
+                    float x = Mathf.Cos(rad) * radius;
+                    float y = Mathf.Sin(rad) * radius;
+                    orbs[i].transform.localPosition = new Vector3(x, y, 0f);
+                }
+            }
+
+            yield return null;
+        }
+
+        foreach (var orb in orbs)
+        {
+            if (orb != null) Destroy(orb);
+        }
     }
 }
