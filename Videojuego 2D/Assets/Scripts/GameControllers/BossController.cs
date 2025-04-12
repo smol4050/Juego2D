@@ -9,6 +9,7 @@ public class BossController : MonoBehaviour
     public GameObject spellPrefab;
 
     public float moveSpeed = 1f;
+   [SerializeField] private int attackDamage;
     public float attackRange = 2f;
     public float detectionRange = 10f;
     public int maxHealth = 1000;
@@ -166,6 +167,11 @@ public class BossController : MonoBehaviour
     {
         if (canAttack)
         {
+            PlayerController playerController = player.GetComponent<PlayerController>();
+            if (playerController != null)
+            {
+                playerController.TakeDamage(attackDamage);
+            }
             sonidoBoss.selectAudioAtack();
             animator.SetBool("isWalking", false);
             animator.SetTrigger("isAttacking");
@@ -331,13 +337,13 @@ public class BossController : MonoBehaviour
         }
         else
         {
-            Debug.LogWarning("healthBarUI no está asignado en el Inspector.");
+            Debug.LogWarning("healthBarUI no estï¿½ asignado en el Inspector.");
         }
     }
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        Debug.Log("Colisión con: " + collision.gameObject.name);
+        Debug.Log("Colisiï¿½n con: " + collision.gameObject.name);
         if (collision.gameObject.CompareTag("Skeleton"))
         {
             Destroy(collision.gameObject);
