@@ -17,7 +17,7 @@ public class BossController : MonoBehaviour
     public float dashSpeed = 3f;
     public float dashDuration = 0.5f;
     public float dashCooldown = 5f;
-    public float attackCooldown = 2f;
+    public float attackCooldown = 3f;
     public float attackSpeed = 3f;
     public float predictionTime = 1f;
     private bool isRetreating = false;
